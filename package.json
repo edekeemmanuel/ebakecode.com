@@ -1,0 +1,78 @@
+{
+  "name": "ebakecode",
+  "description": "Edeke Emmanuel main portfolio, an enthusiast software engineer with enthusiastic love of programming.",
+  "private": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "Edeke Emmanuel",
+    "email": "edekeemmanuel55@gmail.com",
+    "url": "https://ebakecode.com.web.app/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edekeemmanuel/ebakecode.com"
+  },
+  "homepage": "https://ebakecode.com.web.app/",
+  "keywords": [
+    "ebakecode",
+    "Edeke Emmanuel",
+    "Emmanuel Edeke",
+    "portfolio",
+    "profile",
+    "homepage",
+    "software engineer",
+    "web developer",
+    "programmer",
+    "senior"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "start": "yarn run dev"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-loader": "^9.5.1"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.63",
+    "@swc/core": "^1.3.101",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "vite": "^5.0.8",
+    "yarn-run-all": "^3.1.1"
+  },
+  "engines": {
+    "node": ">= 20.2.0",
+    "npm": ">= 9.6.6",
+    "yarn": ">= 1.22.19"
+  },
+  "files": [
+    "public/",
+    "src/",
+    ".eslintrc.cjs",
+    ".gitignore",
+    "HISTORY.md",
+    "index.html",
+    "LICENSE",
+    "note.txt",
+    "package.json",
+    "README.md",
+    "vite.config.js",
+    "yarn.lock",
+    "MIT"
+  ],
+  "main": "index.html"
+}
