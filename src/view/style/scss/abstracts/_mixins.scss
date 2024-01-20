@@ -1,0 +1,105 @@
+@use "_colors" as *;
+@use "_functions" as *;
+@use "_variables" as *;
+@use "sass:meta";
+
+@mixin flex-container($side, $position) {
+  display: flex;
+  flex-direction: $side;
+  justify-content: $position;
+  align-items: $position;
+} 
+
+@mixin fonts($weight, $size, $height) {
+  font-family: #{meta.inspect($font-family-sans-serif)};; 
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+}
+
+@mixin size-container($width, $height){
+  height: auto !important;
+  width: $width;
+  min-height: $height;
+}
+
+@mixin border-container($size, $color) {
+  border: border-mix($size, $color);
+  background-color: $color;
+  border-radius: $size;
+} 
+
+
+@mixin positions($top, $right, $bottom, $left){
+  position: relative;
+  top: $top;
+  right: $right;
+  bottom: $left;
+  left: $left;
+} 
+
+
+/* media querries */
+@mixin myphone-size {
+@media (min-width: $x-small) and (max-width: $phone){
+  @content;
+}
+}
+
+@mixin mobile {
+@media (min-width: $small) and (max-width: $mobile){
+  @content;
+}
+}
+
+@mixin tablet {
+@media (min-width: $small-m) and (max-width: $tablet){
+  @content;
+}
+}
+
+@mixin laptop {
+@media (min-width: $medium) and (max-width: $laptop){
+  @content;
+}
+}
+
+
+@mixin desktop {
+@media (min-width: $large) and (max-width: $desktop){
+  @content;
+}
+}
+
+@mixin tv {
+@media (min-width: $extra-large) and (max-width: $tv){
+  @content;
+}
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: #{$extra-large}) {
+    @content;
+  }
+}
+
+
+@mixin sidebar-positioning() {
+  .sidebar {
+    margin-left: (-20px) !important;
+    position: relative;
+    bottom: 40px;
+  }
+}
+
+@mixin sidebar-positioning2() {
+  .sidebar {
+    margin-left: (-20px) !important;
+    position: relative;
+    // bottom: 40px;
+  }
+}
+
+
+
+ 

@@ -3,7 +3,7 @@ const CACHE_VERSION = 1;
 const EBakeCode_CACHES = {
   font: `font-cache-v${CACHE_VERSION}`,
 };
-const url = "../src/components/ebakecode/Offline.jsx";
+const url = "/Offline.jsx";
 /* likely CRUD operation in cache*/
 //move resources into cache
 const addResourcesToCache = async (resources) => {
@@ -121,7 +121,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     getCache({
       request: event.request,
-      url: "../src/components/ebakecode/Offline.jsx",
+      url: "/Offline.jsx",
       preloadResponsePromise: event.preloadResponse
     }),
   );
@@ -160,4 +160,3 @@ self.addEventListener("activate", (event) => {
   // send response to the active service wotker to get the package
   self.clients.claim();
 });
-

@@ -1,0 +1,15 @@
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/functions" as *;
+
+.button__box {
+  @include border-container(10px, $button-color);
+  padding: 0px 12px 0px 12px;
+  @include mobile {
+    padding: 0px 8px 0px 8px;
+  }
+}
+
+.signup--button {
+  padding: 0px 7px 0px 7px;
+}

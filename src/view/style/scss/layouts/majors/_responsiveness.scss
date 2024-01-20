@@ -1,0 +1,162 @@
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/functions" as *;
+@use "../../abstracts/variables" as *;
+
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    a {
+      float: left;
+    }
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .topnav {
+    .search-container {
+      float: none;
+    }
+
+    a, .search-container button {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+    }
+
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    border: 1px solid #ccc;
+  }
+}
+
+.search-container2 {
+  position: relative;
+  display: inline-block;
+}
+
+@media screen and (max-width: 425px) {
+  .fa-globe {
+    margin-left: 0px !important;
+  }
+
+  .first-el, .second-el, .third-el {
+    flex-grow: 1 !important;
+  }
+
+  .globe-icon {
+    margin-left: 0px !important;
+  }
+
+  .more-icon {
+    margin-left: 40px !important;
+  }
+
+  #logo {
+    margin-left: 70px !important;
+  }
+
+  .fa-home {
+    left: 75px !important;
+    position: relative;
+    bottom: 40px;
+    left: 110px;
+    top: 15px !important;
+  }
+}
+
+@media screen and (min-width: $l-x-small) and (max-width: $l-x-small-end) {
+  .content {
+    width: 350px !important;
+  }
+
+  .search-input {
+    width: 210px !important;
+  }
+
+  @include sidebar-positioning;
+}
+
+@media screen and (min-width: $l-phone) and (max-width: $l-phone-end) {
+  .content {
+    width: 400px !important;
+  }
+
+  .search-input {
+    width: 265px !important;
+  }
+
+  @include sidebar-positioning;
+}
+
+@media screen and (min-width: $l-small) and (max-width: $l-small-end) {
+  .content {
+    width: 455px !important;
+  }
+
+  .fa-home {
+    display: none;
+  }
+
+  .search-input {
+    width: 315px !important;
+  }
+
+  @include sidebar-positioning2;
+
+  // .sidebar {
+  //   margin-left: (-20px) !important;
+  //   position: relative;
+
+  //   /* bottom: 20px; */
+  //   /* display: none; */
+  // }
+}
+
+@media screen and (min-width: $l-medium) and (max-width: $l-medium-end) {
+  .content {
+    width: 455px !important;
+    margin-left: 250px !important;
+  }
+
+  #logo {
+    margin-left: 50px !important;
+    margin-right: 10px !important;
+  }
+
+  .fa-home {
+    display: none;
+  }
+
+  .search-input {
+    width: 315px !important;
+  }
+
+  .sidebar {
+    margin-left: 15px;
+  }
+}

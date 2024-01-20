@@ -1,0 +1,11 @@
+@use "_colors" as *;
+
+@function border-mix($size, $color) {
+  $border: $size solid $color;
+  @return $border;
+}
+
+@function pad-left($pad) {
+  $padding-left: $pad;
+  @return $padding;
+}

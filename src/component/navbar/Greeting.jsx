@@ -1,5 +1,5 @@
 import React from "react";
-const EBakecode = () => {
+const Greeting = () => {
   return  <h1> EBakecode </h1>
 }
-export default EBakecode;
+export default Greeting;

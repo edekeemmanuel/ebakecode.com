@@ -1,0 +1,155 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/colors" as *;
+@use "../abstracts/functions" as *;
+
+.login {
+  color: #332700 !important;
+  background-image: url("../../assest/image/books-5430104_1920 1.png");
+  background-repeat: no-repeat;
+  @include size-container(100%, 80vh);
+  @include myphone-size {
+      top: 15px;
+  }
+  @include mobile{
+    
+  }
+  position: relative;
+  bottom: 18px;
+  &__container {
+    background-color: $light;
+    @include size-container(70%, 35vh);
+    @include positions(70px,0,0,15%);
+    @include border-container(10px, $light);
+    @include myphone-size {
+        @include size-container(88%, 65vh);
+        @include positions(40px,0,0,20px);
+      }
+    img{
+      @include positions(4px,0,0,91%); 
+      @include myphone-size {
+       @include size-container(10%, 5vh);
+  }
+    }
+  }
+  &__body {
+  @include flex-container(column, center);
+  @include myphone-size {
+    margin-left: 0;
+  padding-left: 0;
+  }
+  
+  }
+  &__header {
+    @include flex-container(column, center);
+    span {
+      img{
+        @include positions(8px,200px,0,0);
+       @include size-container(120px, 120px);
+       @include myphone-size {
+         @include size-container(60px, 60px);
+         @include positions(0,150px,0,0);
+         margin-bottom: 15px;
+       }
+        margin-bottom: 30px;
+      }
+    }
+    h1 {
+      @include fonts(500, 24px, 29.3px);
+    }
+  }
+  &__form {
+    &__item {
+      @include flex-container(column, start);
+      @include fonts(500, 15px, 18.31px);
+    label {
+      margin: 10px 0px 10px 0px;
+      @include myphone-size {
+        margin: 10px 0px 5px 30px;
+      }
+    }
+    input {
+      @include size-container(562px, 47px);
+      @include myphone-size {
+      @include size-container(280px, 30px);
+      margin-left: 20px;
+  }
+      border: 1px solid $dark;
+      border-radius: 5px;
+    }
+    span {
+      position: absolute;
+      img {
+        @include size-container(30px, 30px);
+        @include myphone-size {
+        @include size-container(20px, 20px);  
+        left: 270px;
+        top: 40px;
+      }
+        position: absolute;
+        top: 45px;
+        left: 510px;
+      }
+    }
+    }
+  }
+  .form__main {
+    color: $navbrand-color;
+    display: flex;
+    @include fonts(500, 13px, 15.87px);
+    padding-top: 10px;
+    @include myphone-size {
+      margin-left: 20px;
+      @include fonts(500, 11px, 13px);
+    }
+    .checkbox {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      p {
+        padding-left: 10px;
+        @include myphone-size {
+          position: relative;
+          top: 2px;
+          padding-left: 6px;
+        }
+      }
+    }
+    .forget {
+      position: relative;
+      left: 60%;
+      @include myphone-size {
+        left: 29%;
+        top: 2px;
+      }
+    }
+  }
+}
+.form__footer{
+   @include myphone-size {
+    margin-left: 20px;
+  }
+    p{
+     display: flex;
+    justify-content: center;
+    @include fonts(500, 18px, 21.98px);
+    @include myphone-size {
+    @include fonts(500, 11px, 18px);
+  }
+    padding-top: 10px; 
+    a{
+      color: $link-color;
+      padding-left: 3px;
+    }
+    }
+  }
+.login--submit {
+   @include border-container(10px, $button-color);
+   @include myphone-size {
+    padding: 0px 109px 0px 109px;
+    margin: 10px 0 0 20px;
+  }
+    padding: 0px 255px 0px 255px;
+    margin-top: 15px;
+    @include fonts(500, 15px, 18.31px);
+    color: $light;
+}
