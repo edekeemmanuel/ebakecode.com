@@ -14,12 +14,12 @@
   line-height: 1.5;
   font-weight: 400;
   max-width: 1280px;
+  margin-top: 0;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: 0rem 0.2rem;
   text-align: center;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: gold;
+  color: black;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +37,8 @@ body {
   box-sizing: border-box;
   min-width: 320px;
   min-height: 100vh;
-  color: goldenrod;
+  color: black;
+  background-color: white;
 }
 
 a,
@@ -72,12 +73,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-p {
-  margin: 0.67em 0;
-  background-color: gold;
-  color: red;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: black;
@@ -95,4 +90,8 @@ p {
   margin: 0.67em 0;
   background-color: gold;
   color: red;
+}
+
+.container {
+  height: 100%;
 }

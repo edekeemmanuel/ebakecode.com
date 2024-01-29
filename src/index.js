@@ -1,5 +1,12 @@
-export  {serviceWorkers} from "./serviceWorker";
-export  {useEruda} from "./useEruda";
-export {reportWebVitals} from "./useReportWebVitals";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.sendToAnalytics = exports.reportWebVitals = exports.useEruda = exports.registerServiceWorker = void 0;
+var serviceWorker_ts_1 = require("./serviceWorker.ts");
+Object.defineProperty(exports, "registerServiceWorker", { enumerable: true, get: function () { return serviceWorker_ts_1.registerServiceWorker; } });
+var useEruda_ts_1 = require("./useEruda.ts");
+Object.defineProperty(exports, "useEruda", { enumerable: true, get: function () { return useEruda_ts_1.useEruda; } });
+var useReportWebVitals_ts_1 = require("./useReportWebVitals.ts");
+Object.defineProperty(exports, "reportWebVitals", { enumerable: true, get: function () { return useReportWebVitals_ts_1.reportWebVitals; } });
 //export {gootag} from "./googleTag";
-export {sendToAnalytics} from "./reportHandler";
+var reportHandler_ts_1 = require("./reportHandler.ts");
+Object.defineProperty(exports, "sendToAnalytics", { enumerable: true, get: function () { return reportHandler_ts_1.sendToAnalytics; } });

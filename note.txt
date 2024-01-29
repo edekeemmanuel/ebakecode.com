@@ -1,3 +1,5 @@
+"concurrently \"npm run dev\" \"npm run tsc:w\" \"npm run lite\" "
+
 
 web.dev
 

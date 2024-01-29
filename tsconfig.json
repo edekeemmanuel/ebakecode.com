@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+ "display": "Node 20",
+  "_version": "20.2.0",
+ "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "lib": ["es2023.Array","es2023", "esnext", "dom", "dom.iterable"],
+    "module": "esnext",
+    "skipLibCheck": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "composite": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": ".",
+    "rootDir": ".",
+    "declaration": true,
+    "declarationDir": "type",
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "include": ["**/*", "src"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "files": [   
+    "package.json"   
+  ],
+  "exclude": ["node_modules"]
+}

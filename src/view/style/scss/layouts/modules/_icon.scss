@@ -1,8 +1,0 @@
-@use "../../abstracts/mixins" as *;
-@use "../../abstracts/colors" as *;
-@use "../../abstracts/functions" as *;
-
-.icon-change {
-    @include size-container(25px, 160.67px);
-    border-width: 3.33px;
-  }

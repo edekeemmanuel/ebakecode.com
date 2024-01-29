@@ -2,49 +2,11 @@
 @use "../../abstracts/colors" as *;
 @use "../../abstracts/functions" as *;
 
-.nav__main {
-  @include flex-container(row, none);
-  @include myphone-size {
-    @include flex-container(column, none);
-  }
-  @include mobile {
-    @include flex-container(column, none);
-  }
-  @include tablet {
-    @include flex-container(column, none);
-  }
-  .nav__container{
-    @include flex-container(row, none);
-    margin-left: 30px;
-    padding: 14px;
-    @include myphone-size {
-    margin-left: 10px;
-  }
-  @include mobile {
-    margin-left: 2px;
-  }
-  @include tablet {
-    margin-left: 2px;
-    position: relative;
-    right: 15px;
-  }
-  }
-  .nav__item{
-      @include fonts(500, 18px, 21.95px);
-      padding: 12px;
-      @include myphone-size {
-    padding: 0;
-    @include fonts(500, 16px, 21.95px);
-  }
-  @include mobile {
-    @include fonts(500, 15px, 21.95px);
-    padding: 0 0 0 12px;
-  }
-  @include tablet {
-    padding: 0 0 0 25px;
-  }
+.nav {
+    &__main{
+      @include flex-container(row, center);
     }
-  }
+}
 
 
 /* spacing between Acarereview & Page */

@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  margin: 0px;
+  padding: 0;
+  box-sizing: unset;
+  background-color: #FFFBF0;
+}
+
+.nav {
+  display: flex;
+}

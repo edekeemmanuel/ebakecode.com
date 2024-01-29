@@ -1,4 +1,4 @@
-import {CLS, FID, LCP} from "https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js";
+import {CLS, FID, LCP} from "web-vitals/attribution";
 //import {name, delta, value, id, attribution} from "https://unpkg.com/web-vitals@3/dist/web-vitals.attribution.iife.js";
 export const gootag =  ({name, delta, value, id, attribution}) => {
   var script = document.createElement('script');

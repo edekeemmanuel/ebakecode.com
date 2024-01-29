@@ -1,10 +1,10 @@
-import React from "react";
 import './view/style/scss/main.scss';
-import Home from "./component/Home.jsx";
+//import Home from "./component/Home.tsx";
+import { Outlet } from "react-router-dom";
 const EBakecode = () => {
   return  (
     <>
-      <Home />
+      <Outlet />
     </>
     )
 }
