@@ -1,162 +1,292 @@
-//setting up cache series
-const CACHE_VERSIONS = 1;
-const EBakeCodeCACHES = {
-  font: `font-cache-v${CACHE_VERSIONS}`,
-};
-const urls = "/Offline.tsx";
-/* likely CRUD operation in cache*/
-//move resources into cache
-const addResourcesToCaches = async (resources) => {
-  const cache = await caches.open("EBakeCodeCACHES");
-  /* Setting {cache: 'reload'} in the new request, so that the response isn't done from the HTTP cache; (meanwhile it will be from the network). */
-  await cache.add(new Request(urls, { cache: "reload" }));
-  await cache.addAll(resources);
-  console.log("my resources", resources)
-}; 
-self.addEventListener("install", (event) => {
-  alert("installing service worker!!!")
-  event.waitUntil(
-    addResourcesToCaches([
-      "/",
-      "/index.html",
-      "/src/",
-      "/src/App.jsx",
-      "/src/main.jsx",
-      "/src/styles/scss/main.scss",
-      "/src/components/cache.js",
-      "/src/images",
-      "/src/images/ebakecode.jpg",
-      "/src/images/ebakecode-1.jpg",
-    ])
-    // Force the waiting service worker to become active
-    .then (()=>{
-      self.SkipWaiting()
-    })
+/*const [isVisible, setVisibility] = useState(false)
+
+  const onKeyDown = useCallback((event) => { console.log(event) }, [])
+
+  handleToggle((isVisible) => {
+    if (isVisible) window.addEventListener('keydown', onKeyDown)
+    else window.removeEventListener('keydown', onKeyDown)
+  })
+
+  return (
+    <button onClick={() => setVisibility(!isVisible)}>Click me!</button>
+  )
+
+import React from "react";
+import { slide as Menu } from "react-burger-menu";
+
+export default props => {
+  return (
+    // Pass on our props
+    <Menu {...props}>
+      <a className="menu-item" href="/">
+        Home
+      </a>
+
+      <a className="menu-item" href="/burgers">
+        Burgers
+      </a>
+
+      <a className="menu-item" href="/pizzas">
+        Pizzas
+      </a>
+
+      <a className="menu-item" href="/desserts">
+        Desserts
+      </a>
+    </Menu>
   );
-});
-//updating resources into cache
-const putInCaches = async (request, response) => {
-  const cache = await caches.open("EBakeCode_CACHES");
-  await cache.put(request, response);
-  alert(request, response)
 };
-//get resources into cache
-const getCaches = async ({ request, urls, preloadResponsePromise }) => {
-  alert("Handling fetch event for", request);
-  /**
-   * @param {*} request - event.request.url
-   * @param {String} url - Offline.jsx
-   * @param {*} preloadResponsePromise - event.preloadResponse
-   * @summary responseFromCache => send back response of the requested resources save in the cache
-   */
-  // requesting the resource from the cache
-  const responseFromCache = await caches.match(request);
-  if (responseFromCache) {
-    /*
-      Once resources enter the cache for event.request = request, so the response is defined and can be return.
-    */
-    alert("Found response in cache", responseFromCache);       
-    return responseFromCache;
-  }
-  /*
-    if resources not found in the cache, response will be undefined and then go ahead to fetch() for it.
-  */
-  alert(" Resource not found in the cache. Fetching " + "from network…",
-    request,
+
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { useSwipeable } from "react-swipeable";
+
+import "./styles.css";
+import SideBar from "./sidebar";
+import Lorem from "./lorem";
+
+const swipeOpenMenuStyles = {
+  float: "left",
+  position: "fixed",
+  width: "33%",
+  height: "100%",
+  border: "2px dashed gray"
+};
+
+function App() {
+  const [isOpen, setOpen] = React.useState(false);
+  const handlers = useSwipeable({
+    trackMouse: true,
+    onSwipedRight: () => setOpen(true)
+  });
+
+  return (
+    <div id="App">
+      <div {...handlers} style={swipeOpenMenuStyles} />
+      <SideBar
+        isOpen={isOpen}
+        onStateChange={s => setOpen(s.isOpen)}
+        pageWrapId={"page-wrap"}
+        outerContainerId={"App"}
+      />
+
+      <div id="page-wrap">
+        <h1>Cool Restaurant 🍔🍕</h1>
+        <h2>Check out our offerings in the sidebar!</h2>
+        <Lorem />
+      </div>
+    </div>
   );
-  /** 
-   *  @summary using .clone() from cache.put(), since both fetch() and cache.put() consume the request, so it can make a copy of it.
-   * @function putInCache 
-   * @return updated/copied resources in the cache
-  */
-  // preloaded response once cache is found
-  const preloadResponse = await preloadResponsePromise;
-  if (preloadResponse) {
-    alert("using preload response", preloadResponse);
-    putInCaches(request, preloadResponse.clone());
-    return preloadResponse;
-  }
-  // getting the resource from the network
-  try {
-    const responseFromNetwork = await fetch(request);
-    alert(" Response for the resources from network is loading %O",request, responseFromNetwork);
-    // setting up one clone copies of the resources into the cache and return the second one 
-    putInCaches(request, responseFromNetwork.clone())
-    .then((responseFromNetwork) => {
-      if (
-          responseFromNetwork.status < 400 &&
-          responseFromNetwork.headers.has("content-type") &&
-          responseFromNetwork.headers.get("content-type").match(/^font\//i)
-        ) { 
-          /**
-           * @summary this avoids caching error https response but instead cache Content-Type response header for FONT 
-           * @default some other resources from cross-origin can be cache export does that support CORS
-          */
-          alert("  Caching the response to", request);
-          /*
-          keeping a copy of the clone Response into the cache and the return it back to the user
-          */
-          putInCaches(request, responseFromNetwork.clone());
-          } else {
-              alert("  Not caching the response to", request);
-          }
-    })
-    return responseFromNetwork;
-  } 
-  catch (error) {
-    const fallbackResponse = await caches.match(urls);
-    if (fallbackResponse) {
-      return fallbackResponse;
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
     }
-    /*
-    when even the fallback response is not available, we return a Response object
-    */
-    return new Response("Network error happened", {
-      status: 408,
-      headers: { "Content-Type": "text/plain" },
-    });
-  }
-};
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    getCaches({
-      request: event.request,
-      urls: "/Offline.jsx",
-      preloadResponsePromise: event.preloadResponse
-    }),
-  );
-});
-self.addEventListener("activate", (event) => {
-  // Delete all caches that aren't named in EBakeCode_CACHES
-  const deleteCache = async (key) => {
-  await caches.delete(key);
-  };
-  const deleteOldCaches = async () => {
-  const cacheKeepList = ["v2"];
-  const keyList = await caches.keys();
-  const cachesToDelete = keyList.filter((key) => !cacheKeepList.includes(key));
-  await Promise.all(cachesToDelete.map(deleteCache));
-  };
-  const expectedCacheNamesSet = new Set(Object.values(EBakeCodeCACHES));
-  event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!expectedCacheNamesSet.has(cacheName)) {
-            // delete cache not found in EBakeCode_CACHES
-            console.log("Deleting out of date cache:", cacheName);
-            return caches.delete(cacheName);
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu {
+      min-width: 100px;
+      width: 70%;
+      max-width: 320px;
+
+      background-color: #2c8dfb;
+      color: #fff;
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .menu-button {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+
+      padding: 15px;
+
+      cursor: pointer;
+
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+
+      background-color: #2c8dfb;
+
+      margin: 14px;
+			border-radius: 5px;
+    }
+
+    .menu-button .bar:nth-of-type(1) {
+      margin-top: 0px;
+    }
+
+    .menu-button .bar:nth-of-type(3) {
+      margin-bottom: 0px;
+    }
+
+    .bar {
+      position: relative;
+      display: block;
+
+      width: 50px;
+      height: 5px;
+
+      margin: 10px auto;
+      background-color: #fff;
+
+      border-radius: 10px;
+
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+    }
+
+    .menu-button:hover .bar:nth-of-type(1) {
+      -webkit-transform: translateY(1.5px) rotate(-4.5deg);
+      -ms-transform: translateY(1.5px) rotate(-4.5deg);
+      transform: translateY(1.5px) rotate(-4.5deg);
+    }
+
+    .menu-button:hover .bar:nth-of-type(2) {
+      opacity: 0.9;
+    }
+
+    .menu-button:hover .bar:nth-of-type(3) {
+      -webkit-transform: translateY(-1.5px) rotate(4.5deg);
+      -ms-transform: translateY(-1.5px) rotate(4.5deg);
+      transform: translateY(-1.5px) rotate(4.5deg);
+    }
+
+    .cross .bar:nth-of-type(1) {
+      -webkit-transform: translateY(15px) rotate(-45deg);
+      -ms-transform: translateY(15px) rotate(-45deg);
+      transform: translateY(15px) rotate(-45deg);
+    }
+
+    .cross .bar:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    .cross .bar:nth-of-type(3) {
+      -webkit-transform: translateY(-15px) rotate(45deg);
+      -ms-transform: translateY(-15px) rotate(45deg);
+      transform: translateY(-15px) rotate(45deg);
+    }
+
+    .cross:hover .bar:nth-of-type(1) {
+      -webkit-transform: translateY(13.5px) rotate(-40.5deg);
+      -ms-transform: translateY(13.5px) rotate(-40.5deg);
+      transform: translateY(13.5px) rotate(-40.5deg);
+    }
+
+    .cross:hover .bar:nth-of-type(2) {
+      opacity: 0.1;
+    }
+
+    .cross:hover .bar:nth-of-type(3) {
+      -webkit-transform: translateY(-13.5px) rotate(40.5deg);
+      -ms-transform: translateY(-13.5px) rotate(40.5deg);
+      transform: translateY(-13.5px) rotate(40.5deg);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide menu">Menu slide</div>
+      <div class="swiper-slide content">
+        <div class="menu-button">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        Content slide
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var menuButton = document.querySelector('.menu-button');
+    var openMenu = function () {
+      swiper.slidePrev();
+    };
+    var swiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
+      initialSlide: 1,
+      resistanceRatio: 0,
+      slideToClickedSlide: true,
+      on: {
+        slideChangeTransitionStart: function () {
+          var slider = this;
+          if (slider.activeIndex === 0) {
+            menuButton.classList.add('cross');
+            // required because of slideToClickedSlide
+            menuButton.removeEventListener('click', openMenu, true);
+          } else {
+            menuButton.classList.remove('cross');
           }
-        }),
-      ),
-    ),
-    //enable navigation preload
-    (async () =>{
-      if ("navigationPreload" in self.registration) {
-      await self.registration.navigationPreload.enable();
-      }
-    })()
-  );
-  // send response to the active service wotker to get the package
-  self.clients.claim();
-});
+        },
+        slideChangeTransitionEnd: function () {
+          var slider = this;
+          if (slider.activeIndex === 1) {
+            menuButton.addEventListener('click', openMenu, true);
+          }
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
+*/

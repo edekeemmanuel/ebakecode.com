@@ -1,11 +1,27 @@
-import './view/style/scss/main.scss';
-//import Home from "./component/Home.tsx";
-import { Outlet } from "react-router-dom";
-const EBakecode = () => {
-  return  (
-    <>
-      <Outlet />
-    </>
-    )
+import './main.scss';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom"
+import routes from "./routes"
+import ErrorPage from "./ErrorPage";
+import Layout from "./component/layout/Layout.tsx"
+
+function App() {
+  const router = createBrowserRouter([
+    {
+      // parent route component
+      element: <Layout />,
+      errorElement: <ErrorPage />,
+      // child route components
+      children: routes
+    },
+  ])
+
+  return (
+      <RouterProvider router={router} />
+  )
 }
-export default EBakecode;
+
+export default App

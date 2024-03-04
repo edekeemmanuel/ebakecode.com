@@ -34,12 +34,12 @@ html {
 
  body{
   margin: 0;
-  overflow: hidden;
   box-sizing: border-box;
   min-width: 320px;
   min-height: 100vh;
-  color: black;
-  background-color: white;
+  color: white;
+  overflow-y: scroll;
+  
  }
 
 a,
@@ -72,6 +72,37 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0f172b;
+}
+
+/* Firefox */
+/* For Firefox 64+ */
+* {
+  scrollbar-color: #0f172b rgba(0, 0, 0, 0.05);
+  scrollbar-width: thin;
+}
+
+.ebakecode {
+  max-width: 100%;
+  width: 100%;
+}
+.wrapper {
+  max-width: 98%;
+  width: 98%;
+  margin-inline: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  
 }
 
 

@@ -1,0 +1,12 @@
+@import "./view/style/scss/bases/_base.scss",
+"./view/style/scss/layouts/majors/_majors.scss",
+"./view/style/scss/layouts/modules/_modules.scss",
+"./view/style/scss/pages/_pages.scss";
+
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/*
+@import "tailwindcss/utilities";
+@import "./custom-utilities.css";*/

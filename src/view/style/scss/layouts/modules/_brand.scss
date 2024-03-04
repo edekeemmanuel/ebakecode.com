@@ -1,8 +1,0 @@
-@use "../../abstracts/mixins" as *;
-.brand__container {
-  @include border-container(100px, gold)
-}
-.brand {
-  @include size-container(20%, 20%);
-  border: solid;
-}
