@@ -12,7 +12,7 @@ import {useState, useEffect} from "react";
 // 
 
 export default function ColorMotion({ children }) {
-  const [bgColor, setBgColor] = useState(!"bgAnimate")
+  const [bgColor, setBgColor]:any = useState(!"bgAnimate")
   const listenScrollEvent = () => {
     window.scrollY > 2
       ? setBgColor("bgAnimate")

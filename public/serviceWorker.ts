@@ -88,10 +88,14 @@ self.addEventListener('fetch', e => {
                 }); 
             return res; */
               //updating resources into cache
+              
+
 let putInCaches = (request, response) => {
-  const cache =  caches.open("cacheName");
-  const cached = cache.put(request, response);
-  return cached
+  const cache =  caches.open("cacheName").then((cached) =>{
+    return cached.put(request, response); 
+  })
+  return cache ?? {request, response};
+  
   console.log(request, response)
 };
   /**
@@ -129,33 +133,33 @@ let putInCaches = (request, response) => {
   }
   // getting the resource from the network
   try {
-    const responseFromNetwork =  fetch(e.request);
+    const responseFromNetwork:any =  fetch(e.request);
     console.log(" Response for the resources from network is loading %O",e.request, responseFromNetwork);
     // setting up one clone copies of the resources into the cache and return the second one 
-    putInCaches(e.request, responseFromNetwork.clone())
+    putInCaches(!e.request, responseFromNetwork.clone())
     .then((responseFromNetwork) => {
-      if (
-          responseFromNetwork.status < 400 &&
-          responseFromNetwork.headers.has("content-type") &&
-          responseFromNetwork.headers.get("content-type").match(/^font\//i)
+       
+    /*  if (
+          responseFromNetwork.status == 400
         ) { 
           /**
            * @summary this avoids caching error https response but instead cache Content-Type response header for FONT 
            * @default some other resources from cross-origin can be cache export does that support CORS
-          */
+          
           console.log("  Caching the response to", e.request);
           /*
           keeping a copy of the clone Response into the cache and the return it back to the user
-          */
+          
           putInCaches(e.request, responseFromNetwork.clone());
           } else {
               console.log("  Not caching the response to", e.request);
-          }
+          }*/
+    console.log("  Caching the response to", e.request, responseFromNetwork);      
     })
     return responseFromNetwork;
   } 
   catch (error) {
-    const fallbackResponse = caches.match(urls);
+    const fallbackResponse = caches.match(url);
     if (fallbackResponse) {
       return fallbackResponse;
     }

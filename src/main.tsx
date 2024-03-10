@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import EBakeCode from './EBakeCode.tsx';
 //import {registerServiceWorker, useEruda, reportWebVitals, sendToAnalytics} from "./index.ts"
-import  {serviceWorkers} from "./serviceWorker.ts";
+import  {registerServiceWorker} from "./serviceWorker.ts";
 import  {useEruda} from "./useEruda.ts";
 import {reportWebVitals} from "./useReportWebVitals.ts";
 // //export {gootag} from "./googleTag";

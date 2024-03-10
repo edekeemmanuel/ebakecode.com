@@ -44,7 +44,7 @@ const Slider = ({children, settings}) => {
 //     >
       <Swiper
         // install Swiper modules
-        modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectCreative, FreeMode, Parallax,Thumbs]}
+        modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, EffectFade, EffectCreative, FreeMode, Parallax,Thumbs]}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
         {...sliderOptions}

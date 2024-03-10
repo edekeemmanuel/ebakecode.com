@@ -14,7 +14,7 @@ export default function Layout() {
   console.log("layout")
     return (
         <>
-        <ColorMotion className="">
+        <ColorMotion>
           <div className="px-[5px]">
             <div className="ebakecode">
               

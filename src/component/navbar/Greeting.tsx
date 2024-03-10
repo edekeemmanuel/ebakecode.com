@@ -1,12 +1,4 @@
-import { Scrollbar, A11y, EffectCoverflow, } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-        
-import React, { useRef, useState } from 'react';
+import { useRef} from 'react';
 import Slider, {Slide} from "../Slide";
 
 const Greeting = () => {
@@ -21,12 +13,14 @@ const Greeting = () => {
     },
   }
   
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
+  const progressCircle: any = useRef(null);
+  const progressContent: any = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
+    if(progressCircle.current != null && progressContent.current != null) {
     progressCircle.current.style.setProperty('--progress', 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-  };
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s` + s;
+    }
+    };
   const autoplayTime ={
     delay: 10000,
     disableOnInteraction: false,

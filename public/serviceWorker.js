@@ -138,9 +138,10 @@ self.addEventListener('fetch', function (e) {
         return res; */
         //updating resources into cache
         var putInCaches = function (request, response) {
-            var cache = caches.open("cacheName");
-            var cached = cache.put(request, response);
-            return cached;
+            var cache = caches.open("cacheName").then(function (cached) {
+                return cached.put(request, response);
+            });
+            return cache !== null && cache !== void 0 ? cache : { request: request, response: response };
             console.log(request, response);
         };
         /**
@@ -179,29 +180,29 @@ self.addEventListener('fetch', function (e) {
             var responseFromNetwork = fetch(e.request);
             console.log(" Response for the resources from network is loading %O", e.request, responseFromNetwork);
             // setting up one clone copies of the resources into the cache and return the second one 
-            putInCaches(e.request, responseFromNetwork.clone())
+            putInCaches(!e.request, responseFromNetwork.clone())
                 .then(function (responseFromNetwork) {
-                if (responseFromNetwork.status < 400 &&
-                    responseFromNetwork.headers.has("content-type") &&
-                    responseFromNetwork.headers.get("content-type").match(/^font\//i)) {
-                    /**
-                     * @summary this avoids caching error https response but instead cache Content-Type response header for FONT
-                     * @default some other resources from cross-origin can be cache export does that support CORS
-                    */
-                    console.log("  Caching the response to", e.request);
-                    /*
-                    keeping a copy of the clone Response into the cache and the return it back to the user
-                    */
-                    putInCaches(e.request, responseFromNetwork.clone());
-                }
-                else {
-                    console.log("  Not caching the response to", e.request);
-                }
+                /*  if (
+                      responseFromNetwork.status == 400
+                    ) {
+                      /**
+                       * @summary this avoids caching error https response but instead cache Content-Type response header for FONT
+                       * @default some other resources from cross-origin can be cache export does that support CORS
+                      
+                      console.log("  Caching the response to", e.request);
+                      /*
+                      keeping a copy of the clone Response into the cache and the return it back to the user
+                      
+                      putInCaches(e.request, responseFromNetwork.clone());
+                      } else {
+                          console.log("  Not caching the response to", e.request);
+                      }*/
+                console.log("  Caching the response to", e.request, responseFromNetwork);
             });
             return responseFromNetwork;
         }
         catch (error) {
-            var fallbackResponse = caches.match(urls);
+            var fallbackResponse = caches.match(url);
             if (fallbackResponse) {
                 return fallbackResponse;
             }
