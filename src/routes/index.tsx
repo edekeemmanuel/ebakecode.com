@@ -1,5 +1,5 @@
 import React from "react"
-import PathConstants from "./pathConstants"
+import {PathConstants} from "./pathConstants"
 
 const Home = React.lazy(() => import("../pages/Home"))
 // other page components...

@@ -17,7 +17,7 @@ const Menu = () => {
 }
 export default Menu;
 */
-import PathConstants from "../../routes/pathConstants";
+import {PathConstants} from "../../routes/pathConstants";
 import {NavLink} from "react-router-dom"
 import { fallDown as Menu } from 'react-burger-menu';
 import { FaHamburger } from "react-icons/fa";
