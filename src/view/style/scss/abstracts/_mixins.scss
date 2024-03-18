@@ -40,6 +40,11 @@
 
 
 /* media querries */
+@mixin x-small {
+@media (min-width: $least) and (max-width: $x-small){
+  @content;
+}
+}
 @mixin myphone-size {
 @media (min-width: $x-small) and (max-width: $phone){
   @content;

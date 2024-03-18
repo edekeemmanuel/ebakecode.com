@@ -1,0 +1,14 @@
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/colors" as *;
+@use "../../abstracts/functions" as *;
+
+.header__svg svg {
+  @include x-small {
+  width: 30px;
+  height: 30px;
+  }
+  @include laptop {
+  width: 70px;
+  height: 70px;
+  }
+}

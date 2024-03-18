@@ -1,0 +1,776 @@
+
+
+
+
+
+
+
+
+import * as React from "react";
+import { render } from "react-dom";
+import { Header } from "./Header";
+import { CardList } from "./CardList";
+
+import "./styles.css";
+
+function App() {
+  return (
+    <div className="container">
+      <Header />
+      <CardList />
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+render(<App />, rootElement);
+
+
+import * as React from "react";
+import { Card } from "./Card";
+import { CardData } from "./types";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+const List = ({ match, history }) => (
+  <ul className="card-list">
+    {cardData.map(card => (
+      <Card
+        key={card.id}
+        isSelected={match.params.id === card.id}
+        history={history}
+        {...card}
+      />
+    ))}
+  </ul>
+);
+
+export const CardList = () => (
+  <Router>
+    <Route path={["/:id", "/"]} component={List} />
+  </Router>
+);
+
+const cardData: CardData[] = [
+  // Photo by ivan Torres on Unsplash
+  {
+    id: "c",
+    category: "Pizza",
+    title: "5 Food Apps Delivering the Best of Your City",
+    pointOfInterest: 80,
+    backgroundColor: "#814A0E"
+  },
+  // Photo by Dennis Brendel on Unsplash
+  {
+    id: "f",
+    category: "How to",
+    title: "Arrange Your Apple Devices for the Gram",
+    pointOfInterest: 120,
+    backgroundColor: "#959684"
+  },
+  // Photo by Alessandra Caretto on Unsplash
+  {
+    id: "a",
+    category: "Pedal Power",
+    title: "Map Apps for the Superior Mode of Transport",
+    pointOfInterest: 260,
+    backgroundColor: "#5DBCD2"
+  },
+  // Photo by Taneli Lahtinen on Unsplash
+  {
+    id: "g",
+    category: "Holidays",
+    title: "Our Pick of Apps to Help You Escape From Apps",
+    pointOfInterest: 200,
+    backgroundColor: "#8F986D"
+  },
+  // Photo by Simone Hutsch on Unsplash
+  {
+    id: "d",
+    category: "Photography",
+    title: "The Latest Ultra-Specific Photography Editing Apps",
+    pointOfInterest: 150,
+    backgroundColor: "#FA6779"
+  },
+  // Photo by Siora Photography on Unsplash
+  {
+    id: "h",
+    category: "They're all the same",
+    title: "100 Cupcake Apps for the Cupcake Connoisseur",
+    pointOfInterest: 60,
+    backgroundColor: "#282F49"
+  },
+  // Photo by Yerlin Matu on Unsplash
+  {
+    id: "e",
+    category: "Cats",
+    title: "Yes, They Are Sociopaths",
+    pointOfInterest: 200,
+    backgroundColor: "#AC7441"
+  },
+  // Photo by Ali Abdul Rahman on Unsplash
+  {
+    id: "b",
+    category: "Holidays",
+    title: "Seriously the Only Escape is the Stratosphere",
+    pointOfInterest: 260,
+    backgroundColor: "#CC555B"
+  }
+];
+
+
+export interface CardData {
+  id: string;
+  category: string;
+  title: string;
+  pointOfInterest: number;
+  backgroundColor: string;
+}
+
+import * as React from "react";
+import { LoremIpsum } from "react-lorem-ipsum";
+import { motion, useInvertedScale } from "framer-motion";
+
+export const ContentPlaceholder = React.memo(() => {
+  const inverted = useInvertedScale();
+  return (
+    <motion.div
+      className="content-container"
+      style={{ ...inverted, originY: 0, originX: 0 }}
+    >
+      <LoremIpsum p={6} avgWordsPerSentence={6} avgSentencesPerParagraph={4} />
+    </motion.div>
+  );
+});
+
+
+import * as React from "react";
+import { motion, useInvertedScale } from "framer-motion";
+import { closeSpring } from "./animations";
+
+export const Image = ({
+  id,
+  isSelected,
+  pointOfInterest = 0,
+  backgroundColor
+}) => {
+  const inverted = useInvertedScale();
+
+  return (
+    <motion.div
+      className="card-image-container"
+      style={{ ...inverted, backgroundColor, originX: 0, originY: 0 }}
+    >
+      <motion.img
+        className="card-image"
+        src={`images/${id}.jpg`}
+        alt=""
+        initial={false}
+        animate={
+          isSelected ? { x: -20, y: -20 } : { x: -pointOfInterest, y: 0 }
+        }
+        transition={closeSpring}
+      />
+    </motion.div>
+  );
+};
+
+
+import * as React from "react";
+import { motion, useInvertedScale } from "framer-motion";
+import { closeSpring, openSpring } from "./animations";
+
+export const Title = ({ title, category, isSelected }) => {
+  const inverted = useInvertedScale();
+  const x = isSelected ? 30 : 15;
+  const y = x;
+
+  return (
+    <motion.div
+      className="title-container"
+      initial={false}
+      animate={{ x, y }}
+      transition={isSelected ? openSpring : closeSpring}
+      transformTemplate={scaleTranslate}
+      style={{ ...inverted, originX: 0, originY: 0 }}
+    >
+      <span className="category">{category}</span>
+      <h2>{title}</h2>
+    </motion.div>
+  );
+};
+
+/**
+ * `transform` is order-dependent, so if you scale(0.5) before translateX(100px),
+ * the visual translate will only be 50px.
+ *
+ * The intuitive pattern is to translate before doing things like scale and
+ * rotate that will affect the coordinate space. So Framer Motion takes an
+ * opinion on that and allows you to animate them
+ * individually without having to write a whole transform string.
+ *
+ * However in this component we're doing something novel by inverting
+ * the scale of the parent component. Because of this we want to translate
+ * through scaled coordinate space, and can use the transformTemplate prop to do so.
+ */
+const scaleTranslate = ({ x, y, scaleX, scaleY }) =>
+  `scaleX(${scaleX}) scaleY(${scaleY}) translate(${x}, ${y}) translateZ(0)`;
+
+
+export const openSpring = { type: "spring", stiffness: 200, damping: 30 };
+export const closeSpring = { type: "spring", stiffness: 300, damping: 35 };
+
+
+import * as React from "react";
+import { memo, useRef } from "react";
+import { motion, useMotionValue } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useInvertedBorderRadius } from "../utils/use-inverted-border-radius";
+import { CardData } from "../types";
+import { ContentPlaceholder } from "./ContentPlaceholder";
+import { Title } from "./Title";
+import { Image } from "./Image";
+import { openSpring, closeSpring } from "./animations";
+import { useScrollConstraints } from "../utils/use-scroll-constraints";
+import { useWheelScroll } from "../utils/use-wheel-scroll";
+
+interface Props extends CardData {
+  isSelected: boolean;
+  history: {
+    push: (route: string) => void;
+  };
+}
+
+// Distance in pixels a user has to scroll a card down before we recognise
+// a swipe-to dismiss action.
+const dismissDistance = 150;
+
+export const Card = memo(
+  ({
+    isSelected,
+    id,
+    title,
+    category,
+    history,
+    pointOfInterest,
+    backgroundColor
+  }: Props) => {
+    const y = useMotionValue(0);
+    const zIndex = useMotionValue(isSelected ? 2 : 0);
+
+    // Maintain the visual border radius when we perform the layoutTransition by inverting its scaleX/Y
+    const inverted = useInvertedBorderRadius(20);
+
+    // We'll use the opened card element to calculate the scroll constraints
+    const cardRef = useRef(null);
+    const constraints = useScrollConstraints(cardRef, isSelected);
+
+    function checkSwipeToDismiss() {
+      y.get() > dismissDistance && history.push("/");
+    }
+
+    function checkZIndex(latest) {
+      if (isSelected) {
+        zIndex.set(2);
+      } else if (!isSelected && latest.scaleX < 1.01) {
+        zIndex.set(0);
+      }
+    }
+
+    // When this card is selected, attach a wheel event listener
+    const containerRef = useRef(null);
+    useWheelScroll(
+      containerRef,
+      y,
+      constraints,
+      checkSwipeToDismiss,
+      isSelected
+    );
+
+    return (
+      <li ref={containerRef} className={`card`}>
+        <Overlay isSelected={isSelected} />
+        <div className={`card-content-container ${isSelected && "open"}`}>
+          <motion.div
+            ref={cardRef}
+            className="card-content"
+            style={{ ...inverted, zIndex, y }}
+            layoutTransition={isSelected ? openSpring : closeSpring}
+            drag={isSelected ? "y" : false}
+            dragConstraints={constraints}
+            onDrag={checkSwipeToDismiss}
+            onUpdate={checkZIndex}
+          >
+            <Image
+              id={id}
+              isSelected={isSelected}
+              pointOfInterest={pointOfInterest}
+              backgroundColor={backgroundColor}
+            />
+            <Title title={title} category={category} isSelected={isSelected} />
+            <ContentPlaceholder />
+          </motion.div>
+        </div>
+        {!isSelected && <Link to={id} className={`card-open-link`} />}
+      </li>
+    );
+  },
+  (prev, next) => prev.isSelected === next.isSelected
+);
+
+const Overlay = ({ isSelected }) => (
+  <motion.div
+    initial={false}
+    animate={{ opacity: isSelected ? 1 : 0 }}
+    transition={{ duration: 0.2 }}
+    style={{ pointerEvents: isSelected ? "auto" : "none" }}
+    className="overlay"
+  >
+    <Link to="/" />
+  </motion.div>
+);
+
+
+import { useMotionValue, useInvertedScale } from "framer-motion";
+import { useEffect } from "react";
+
+/**
+ * Avoid the stretch/squashing of border radius by using inverting them
+ * throughout the component's layout transition.
+ *
+ * It would be possible to animate to/from different radius, for instance
+ * in mobile mode from rounded to square for full-screen panels, by passing
+ * the calculated inverted transform to `layoutTransition` when set as a function.
+ *
+ * Those inverted scales could be provided here to act as a `from` value,
+ * then we can use Popcorn's `mix` function to get our
+ *
+ * @param radius
+ */
+export function useInvertedBorderRadius(radius: number) {
+  const scaleX = useMotionValue(1);
+  const scaleY = useMotionValue(1);
+  const inverted = useInvertedScale({ scaleX, scaleY });
+  const borderRadius = useMotionValue(`${radius}px`);
+
+  useEffect(() => {
+    function updateRadius() {
+      const latestX = inverted.scaleX.get();
+      const latestY = inverted.scaleY.get();
+      const xRadius = latestX * radius + "px";
+      const yRadius = latestY * radius + "px";
+
+      borderRadius.set(`${xRadius} ${yRadius}`);
+    }
+
+    const unsubScaleX = inverted.scaleX.onChange(updateRadius);
+    const unsubScaleY = inverted.scaleY.onChange(updateRadius);
+
+    return () => {
+      unsubScaleX();
+      unsubScaleY();
+    };
+  }, [radius]);
+
+  return {
+    scaleX,
+    scaleY,
+    borderTopLeftRadius: borderRadius,
+    borderTopRightRadius: borderRadius,
+    borderBottomLeftRadius: borderRadius,
+    borderBottomRightRadius: borderRadius
+  };
+}
+
+
+
+import { useState, useEffect } from "react";
+
+interface Constraints {
+  top: number;
+  bottom: number;
+}
+
+/**
+ * Calculate the top/bottom scroll constraints of a full-screen element vs the viewport
+ */
+export function useScrollConstraints(ref, measureConstraints: boolean) {
+  const [constraints, setConstraints] = useState<Constraints>({
+    top: 0,
+    bottom: 0
+  });
+
+  useEffect(() => {
+    if (!measureConstraints) return;
+
+    const element = ref.current;
+    const viewportHeight = window.innerHeight;
+    const contentTop = element.offsetTop;
+    const contentHeight = element.offsetHeight;
+    const scrollableViewport = viewportHeight - contentTop * 2;
+    const top = Math.min(scrollableViewport - contentHeight, 0);
+
+    setConstraints({ top, bottom: 0 });
+  }, [measureConstraints]);
+
+  return constraints;
+}
+
+
+
+import { RefObject } from "react";
+import { useDomEvent, MotionValue } from "framer-motion";
+import { spring } from "popmotion";
+import { mix } from "@popmotion/popcorn";
+import { debounce } from "lodash";
+
+interface Constraints {
+  top: number;
+  bottom: number;
+}
+
+// Absolute distance a wheel scroll event can travel outside of
+// the defined constraints before we fire a "snap back" animation
+const deltaThreshold = 5;
+
+// If wheel event fires beyond constraints, multiple the delta by this amount
+const elasticFactor = 0.2;
+
+function springTo(value: MotionValue, from: number, to: number) {
+  if (value.isAnimating()) return;
+
+  value.start(complete => {
+    const animation = spring({
+      from,
+      to,
+      velocity: value.getVelocity(),
+      stiffness: 400,
+      damping: 40
+    }).start({
+      update: (v: number) => value.set(v),
+      complete
+    });
+
+    return () => animation.stop();
+  });
+}
+
+const debouncedSpringTo = debounce(springTo, 100);
+
+/**
+ * Re-implements wheel scroll for overlflow: hidden elements.
+ *
+ * Adds Apple Watch crown-style constraints, where the user
+ * must continue to input wheel events of a certain delta at a certain
+ * speed or the scrollable container will spring back to the nearest
+ * constraint.
+ *
+ * Currently achieves this using event.deltaY and a debounce, which
+ * feels pretty good during direct input but it'd be better to increase
+ * the deltaY threshold during momentum scroll.
+ *
+ * TODOs before inclusion in Framer Motion:
+ * - Detect momentum scroll and increase delta threshold before spring
+ * - Remove padding hack
+ * - Handle x-axis
+ * - Perhaps handle arrow and space keyboard events?
+ *
+ * @param ref - Ref of the Element to attach listener to
+ * @param y - MotionValue for the scrollable element - might be different to the Element
+ * @param constraints - top/bottom scroll constraints in pixels.
+ * @param isActive - `true` if this listener should fire.
+ */
+export function useWheelScroll(
+  ref: RefObject<Element>,
+  y: MotionValue<number>,
+  constraints: Constraints | null,
+  onWheelCallback: (e: WheelEvent) => void,
+  isActive: boolean
+) {
+  const onWheel = (event: WheelEvent) => {
+    event.preventDefault();
+
+    const currentY = y.get();
+    let newY = currentY - event.deltaY;
+    let startedAnimation = false;
+    const isWithinBounds =
+      constraints && newY >= constraints.top && newY <= constraints.bottom;
+
+    if (constraints && !isWithinBounds) {
+      newY = mix(currentY, newY, elasticFactor);
+
+      if (newY < constraints.top) {
+        if (event.deltaY <= deltaThreshold) {
+          springTo(y, newY, constraints.top);
+          startedAnimation = true;
+        } else {
+          debouncedSpringTo(y, newY, constraints.top);
+        }
+      }
+
+      if (newY > constraints.bottom) {
+        if (event.deltaY >= -deltaThreshold) {
+          springTo(y, newY, constraints.bottom);
+          startedAnimation = true;
+        } else {
+          debouncedSpringTo(y, newY, constraints.bottom);
+        }
+      }
+    }
+
+    if (!startedAnimation) {
+      y.stop();
+      y.set(newY);
+    } else {
+      debouncedSpringTo.cancel();
+    }
+
+    onWheelCallback(event);
+  };
+
+  useDomEvent(ref, "wheel", isActive && onWheel, { passive: false });
+}
+
+
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow-y: scroll;
+  --secondary: rgb(161, 161, 161);
+  --divider: #343434;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: ".SFNSText", "SFProText-Regular", "SFUIText-Regular", ".SFUIText",
+    Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  max-width: 990px;
+  flex: 1 1 100%;
+  padding: 45px 25px;
+}
+
+h1 {
+  font-weight: bold;
+  color: white;
+  margin: 6px 0 12px;
+}
+
+.date {
+  color: var(--secondary);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+header {
+  border-bottom: 1px solid var(--divider);
+  position: relative;
+}
+
+.avatar {
+  background: var(--divider);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 12px;
+  right: 0;
+  overflow: hidden;
+}
+
+.avatar,
+.avatar img {
+  width: 40px;
+  height: 40px;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.card {
+  position: relative;
+  padding: 25px;
+  height: 460px;
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.card:nth-child(4n + 1),
+.card:nth-child(4n + 4) {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+
+.card:nth-child(odd) {
+  padding-left: 0;
+}
+
+.card:nth-child(even) {
+  padding-right: 0;
+}
+
+.card-content-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  pointer-events: none;
+}
+
+.card-content-container.open {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.card-content {
+  pointer-events: auto;
+  position: relative;
+  border-radius: 20px;
+  background: #1c1c1e;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.open .card-content {
+  height: auto;
+  max-width: 700px;
+  overflow: hidden;
+}
+
+.card-open-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.card-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 420px;
+  width: 100vw;
+  transform: translateZ(0);
+}
+
+.title-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 300px;
+}
+
+h2 {
+  color: #fff;
+  margin: 8px 0;
+}
+
+.category {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  will-change: opacity;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 990px;
+}
+
+.overlay a {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.content-container {
+  padding: 460px 35px 35px 35px;
+  max-width: 700px;
+  width: 90vw;
+}
+
+p {
+  color: #9d9ca1;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+@media only screen and (max-width: 800px) {
+  .card {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .card:nth-child(4n + 1),
+  .card:nth-child(4n + 4) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    flex: 1 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card:nth-child(4n + 1),
+  .card:nth-child(4n + 4) {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+
+  .card-content-container.open {
+    padding: 0;
+  }
+}

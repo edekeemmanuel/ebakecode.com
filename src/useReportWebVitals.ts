@@ -10,8 +10,5 @@ export const reportWebVitals = (reportHandler: any) => {
      onCLS(reportHandler);
      onFID(reportHandler);
      onLCP(reportHandler);
-    console.log("webVitals starting...");
   };
-  alert("web")
-  console.log("webvitals: ", script);
 };

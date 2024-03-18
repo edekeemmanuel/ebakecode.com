@@ -16,9 +16,15 @@ export default {
     screens: {
       "4xs": "320px",
       "myPhone":"384px",
-      "3xs": "386px",
+      "3xs": "420px",
       "2xs":"485px",
-      "xs": "576px"
+      "xs": "576px",
+      "sm": "640px",
+      "md": "768px",
+      "mlg": "940px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
     }
   },
   plugins: [],

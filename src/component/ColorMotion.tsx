@@ -1,5 +1,6 @@
+import * as React from "react";
 import {useState, useEffect} from "react";
-
+import classNames from "classnames"
 // const bgStyle = {
 //   width: "28rem",
 //   height: "150vh",
@@ -12,13 +13,15 @@ import {useState, useEffect} from "react";
 // 
 
 export default function ColorMotion({ children }) {
-  const [bgColor, setBgColor]:any = useState(!"bgAnimate")
+   const [bgColor, setBgColor]:any = useState(!"bgAnimate")
   const listenScrollEvent = () => {
-    window.scrollY > 2
+    window.scrollY > 0
       ? setBgColor("bgAnimate")
       : setBgColor("black")
     console.log("scroll event")
   }
+  
+ // let bgClass = classNames("h-[150vh]", {"bgColorActive": bgColor})
   
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent)
@@ -27,7 +30,7 @@ export default function ColorMotion({ children }) {
   console.log("bgColor")
   return (
     <>
-      <div id="EBakeCode" role="application" aria-labelledby="EBakeCode" aria-describedby="EBakeCode Portfolio Website" aria-activedescendant="EBakeCode" aria-roledescription="EBakeCode Portfolio Website body" className={`${bgColor} transition-all`}>
+      <div id="EBakeCode" role="application" aria-labelledby="EBakeCode" aria-describedby="EBakeCode Portfolio Website" aria-activedescendant="EBakeCode" aria-roledescription="EBakeCode Portfolio Website body" className={bgColor}>
         {children}
       </div>
     </>

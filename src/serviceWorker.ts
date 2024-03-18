@@ -11,7 +11,7 @@ export const registerServiceWorker = async () => {
       } else if (registration.active) {
         console.log("Service worker active");
       }
-      alert("serviceWorker registered")
+      console.log("serviceWorker registered")
     } catch (error) {
       console.error(`Registration failed with ${error}`);
     }
@@ -21,11 +21,10 @@ export const registerServiceWorker = async () => {
       try {
          navigator.serviceWorker.getRegistration("/serviceWorker.ts").then((registration) => {
               if (registration) {
-              alert("ready")
               console.log("Service worker ready:", registration);
               }
           });
-          alert("serviceWorker ready")
+          console.log("serviceWorker ready")
       }
       catch (error) {
         console.error(`Service worker not ready: ${error}`);

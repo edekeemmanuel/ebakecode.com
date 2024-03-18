@@ -1,11 +1,19 @@
-// import NavBar from "../component/navbar/NavBar.tsx";
-import Header from "../component/header/Header.jsx";
-// import Footer from "./footer/Footer.jsx";
+import * as React from "react";
+import Header from "../component/header/Header";
+
+import bg from "./download (3).jpeg"
+
+  
 const Home = () => {
+
   return (
     <>
-      <div>
+      <div className="main-img">
         <Header />
+        <main>
+          <div>
+          </div>
+        </main>
       </div>
     </>
     )

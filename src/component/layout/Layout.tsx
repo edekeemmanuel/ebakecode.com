@@ -1,8 +1,9 @@
+import * as React from "react";
 import { Suspense } from "react"
 import { Outlet } from "react-router-dom"
 
 import NavBar from "../navbar/NavBar.tsx"
-import Advert from "../header/Advert"
+import Name from "../header/Name"
 import Footer from "../footer/Footer"
 //import WaveScroll from "../WaveScroll"
 import ColorMotion from "../ColorMotion"
@@ -15,11 +16,10 @@ export default function Layout() {
     return (
         <>
         <ColorMotion>
-          <div className="px-[5px]">
+          <div className="h-[150vh]">
             <div className="ebakecode">
-              
               <NavBar />
-              <Advert />
+              <Name />
               <main>                
                 <Suspense fallback={<div>Loading...</div>}>
                     <Outlet />
