@@ -1,5 +1,6 @@
 import * as React from "react";
 import Header from "../component/header/Header";
+import EProfile from "../component/EP/EProfile";
 
 import bg from "./download (3).jpeg"
 
@@ -11,8 +12,7 @@ const Home = () => {
       <div className="main-img">
         <Header />
         <main>
-          <div>
-          </div>
+          
         </main>
       </div>
     </>

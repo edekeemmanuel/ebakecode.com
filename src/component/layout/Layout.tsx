@@ -16,7 +16,7 @@ export default function Layout() {
     return (
         <>
         <ColorMotion>
-          <div className="h-[150vh]">
+          <div className="">
             <div className="ebakecode">
               <NavBar />
               <Name />
