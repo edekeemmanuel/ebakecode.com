@@ -1,4 +1,4 @@
-import Resume from "../../view/asset/icons/resumes.png";
+//import Resume from "./resumes.png";
 
 const Header = () => {
   return  (
@@ -17,7 +17,7 @@ const Header = () => {
     </div>
     <div className="relative 2xs:left-20 xs:left-28 sm:left-32 md:left-[165px] myPhone:left-[70px]">
       <a>
-        <img className="4xs:w-[30px] 4xs:h-[30px] myPhone:w-[40px] myPhone:h-[40px] md:w-[70px] md:h-[70px]" src={Resume} />
+        <img className="4xs:w-[30px] 4xs:h-[30px] myPhone:w-[40px] myPhone:h-[40px] md:w-[70px] md:h-[70px]" src={"./resumes.png"} />
         <span className="relative 4xs:text-[12px] 4xs:bottom-1 4xs:right-9 myPhone:right-10 3xs:text-[14px] 2xs:text-[18px] xs:text-[20px] 3xs:right-10 2xs:right-12 xs:right-16 sm:text-[18px] sm:right-20 md:right-[90px] md:text-[20px]">CV</span>
       </a>
     </div>
