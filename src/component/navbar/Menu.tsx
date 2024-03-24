@@ -1,4 +1,3 @@
-import * as React from "react";
 import {PathConstants} from "../../routes/pathConstants";
 import {NavLink} from "react-router-dom"
 import { fallDown as Menu } from 'react-burger-menu';

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useRef } from 'react'
 import { styled } from '@stitches/react'
 import { useTrail, animated } from '@react-spring/web'

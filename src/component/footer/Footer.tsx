@@ -1,14 +1,13 @@
-import * as React from "react";
 import {useState, useEffect} from "react"
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { FaSquareTwitter } from "react-icons/fa6";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
-import { IoMdMailUnread } from "react-icons/io";
+//import { IoMdMailUnread } from "react-icons/io";
 
 
 const Footer = () => {
-  const [dates, setDates] = useState(true)
+  const [dates, setDates] = useState(1)
   useEffect(() =>{
     const Year = () =>{
       const d = new Date(); 

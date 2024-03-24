@@ -1,5 +1,4 @@
-import * as React from "react";
-import { motion, useInvertedScale } from "framer-motion";
+import { motion, useDeprecatedInvertedScale } from "framer-motion";
 import { closeSpring } from "./animations";
 
 export const Image = ({
@@ -8,7 +7,7 @@ export const Image = ({
   pointOfInterest = 0,
   backgroundColor
 }) => {
-  const inverted = useInvertedScale();
+  const inverted = useDeprecatedInvertedScale();
 
   return (
     <motion.div
@@ -18,7 +17,7 @@ export const Image = ({
       <motion.img
         className="card-image"
         src={"./IMG-20230804-WA0003.jpg"}
-        alt="EBakeCode"
+        alt={id}
         initial={false}
         animate={
           isSelected ? { x: -20, y: -20 } : { x: -pointOfInterest, y: 0 }

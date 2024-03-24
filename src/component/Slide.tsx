@@ -1,4 +1,3 @@
-import * as React from "react";
 //import {SliderWrap} from "./swiper.style";
 // styled-component wrap
 import {Swiper, SwiperSlide} from 'swiper/react';

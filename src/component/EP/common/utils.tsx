@@ -1,12 +1,12 @@
-import {useDomEvent, useMotionValue, MotionValue, useInvertedScale } from "framer-motion";
+import {useDomEvent, useMotionValue, MotionValue, useDeprecatedInvertedScale } from "framer-motion";
 import { useState, useEffect, RefObject} from "react";
 import { spring } from "popmotion";
 import { mix } from "@popmotion/popcorn";
 import { debounce } from "lodash";
 
 interface Constraints {
-  top: number;
-  bottom: number;
+  top: any;
+  bottom: any;
 }
 
 
@@ -26,7 +26,7 @@ interface Constraints {
 export function useInvertedBorderRadius(radius: number) {
   const scaleX = useMotionValue(1);
   const scaleY = useMotionValue(1);
-  const inverted = useInvertedScale({ scaleX, scaleY });
+  const inverted = useDeprecatedInvertedScale({ scaleX, scaleY });
   const borderRadius = useMotionValue(`${radius}px`);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export function useInvertedBorderRadius(radius: number) {
 /**
  * Calculate the top/bottom scroll constraints of a full-screen element vs the viewport
  */
-export function useScrollConstraints(ref, measureConstraints: boolean) {
+export function useScrollConstraints(ref, measureConstraints: any) {
   const [constraints, setConstraints] = useState<Constraints>({
     top: 0,
     bottom: 0
@@ -92,18 +92,22 @@ const deltaThreshold = 5;
 // If wheel event fires beyond constraints, multiple the delta by this amount
 const elasticFactor = 0.2;
 
-function springTo(value: MotionValue, from: number, to: number) {
+function springTo(
+  value: any, 
+  from: any, 
+  to: any
+  ):any {
   if (value.isAnimating()) return;
 
   value.start(complete => {
-    const animation = spring({
+    const animation: any = spring({
       from,
       to,
       velocity: value.getVelocity(),
       stiffness: 400,
       damping: 40
     }).start({
-      update: (v: number) => value.set(v),
+      update: (v: any) => value.set(v),
       complete
     });
 
@@ -138,10 +142,10 @@ const debouncedSpringTo = debounce(springTo, 100);
  */
 export function useWheelScroll(
   ref: RefObject<Element>,
-  y: MotionValue<number>,
+  y: MotionValue<any>,
   constraints: Constraints | null,
   onWheelCallback: (e: WheelEvent) => void,
-  isActive: boolean
+  isActive: any
 ) {
   const onWheel = (event: WheelEvent) => {
     event.preventDefault();

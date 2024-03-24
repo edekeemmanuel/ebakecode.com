@@ -1,18 +1,15 @@
-import * as React from "react";
 import { memo, useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useInvertedBorderRadius } from "../utils/use-inverted-border-radius";
+import { useInvertedBorderRadius, useScrollConstraints, useWheelScroll } from "./common/utils";
 import { CardData } from "./common/CardData.ts";
 import { ContentPlaceholder } from "./common/ContentPlaceholder";
 import { Title } from "./common/Title";
 import { Image } from "./common/Image";
 import { openSpring, closeSpring } from "./common/animations";
-import { useScrollConstraints } from "../utils/use-scroll-constraints";
-import { useWheelScroll } from "../utils/use-wheel-scroll";
 
 interface Props extends CardData {
-  isSelected: boolean;
+  isSelected: any;
   history: {
     push: (route: string) => void;
   };
@@ -72,7 +69,8 @@ export const Card = memo(
             ref={cardRef}
             className="card-content"
             style={{ ...inverted, zIndex, y }}
-            layoutTransition={isSelected ? openSpring : closeSpring}
+            layout
+            transition={isSelected ? openSpring : closeSpring}
             drag={isSelected ? "y" : false}
             dragConstraints={constraints}
             onDrag={checkSwipeToDismiss}

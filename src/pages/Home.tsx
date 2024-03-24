@@ -1,8 +1,7 @@
-import * as React from "react";
 import Header from "../component/header/Header";
-import EProfile from "../component/EP/EProfile";
+import {CardList} from "../component/EP/EProfile";
 
-import bg from "./download (3).jpeg"
+//import bg from "./download (3).jpeg"
 
   
 const Home = () => {
@@ -12,7 +11,7 @@ const Home = () => {
       <div className="main-img">
         <Header />
         <main>
-          
+          <CardList />
         </main>
       </div>
     </>

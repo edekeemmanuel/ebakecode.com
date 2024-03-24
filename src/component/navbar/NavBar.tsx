@@ -1,4 +1,3 @@
-import * as React from "react";
 //import { Link } from "react-router-dom"
 import Brand from "../../view/asset/images/ebakecode.jpg";
 import Greeting from "./Greeting";

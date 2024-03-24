@@ -1,6 +1,5 @@
-import * as React from "react";
 import {useState, useEffect} from "react";
-import classNames from "classnames"
+//import classNames from "classnames"
 // const bgStyle = {
 //   width: "28rem",
 //   height: "150vh",

@@ -1,9 +1,9 @@
-import * as React from "react";
 import { Card } from "./Card";
 import { CardData } from "./common/CardData.ts";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import {PathConstants} from "../routes/pathConstants.ts";
 
-const List = ({ match, history }) => (
+const List: any = ({ match, history }) => (
   <ul className="card-list">
     {cardData.map(card => (
       <Card
@@ -18,7 +18,7 @@ const List = ({ match, history }) => (
 
 export const CardList = () => (
   <Router>
-    <Route path={["/:id", "/"]} component={List} />
+    <Route path={PathConstants.EPROFILE} element={<List/>} />
   </Router>
 );
 
