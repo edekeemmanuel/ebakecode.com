@@ -100,13 +100,14 @@ function springTo(
   if (value.isAnimating()) return;
 
   value.start(complete => {
-    const animation: any = spring({
+    let animation: any = spring({
       from,
       to,
       velocity: value.getVelocity(),
       stiffness: 400,
       damping: 40
-    }).start({
+    });
+    animation.start({
       update: (v: any) => value.set(v),
       complete
     });

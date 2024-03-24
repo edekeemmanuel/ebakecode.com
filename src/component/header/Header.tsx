@@ -1,4 +1,4 @@
-import Resume from "../../view/asset/icons/resume (3).png"
+import Resume from "../../view/asset/icons/resumes.png";
 
 const Header = () => {
   return  (

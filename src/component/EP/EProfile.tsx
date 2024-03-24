@@ -1,7 +1,7 @@
 import { Card } from "./Card";
 import { CardData } from "./common/CardData.ts";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import {PathConstants} from "../routes/pathConstants.ts";
+import {PathConstants} from "../../routes/pathConstants";
 
 const List: any = ({ match, history }) => (
   <ul className="card-list">
