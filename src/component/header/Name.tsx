@@ -50,7 +50,7 @@ export default function Name() {
   const [music, setMusic] = useState(false);
 
   const isFlipped = useRef(false)
-  const ref = useRef(null)
+  const ref = useRef<HTMLAudioElement>(null)
 
   const handleClick = () => {
     if (isFlipped.current) {
@@ -67,9 +67,9 @@ export default function Name() {
     
     setMusic(!music)
     if(!music) {
-      ref.current.play();
+      ref.current?.play();
     } else {
-      ref.current.pause();
+      ref.current?.pause();
     }
   }
 
