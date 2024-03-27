@@ -1,5 +1,5 @@
 import Header from "../component/header/Header";
-import {CardList} from "../component/EP/EProfile";
+import Profile from "../component/Profile";
 
 //import bg from "./download (3).jpeg"
 
@@ -8,11 +8,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="main-img">
+      <div className="main-img bg-blue-900">
         <Header />
-        <main>
-          <CardList />
-        </main>
+        <Profile />
       </div>
     </>
     )

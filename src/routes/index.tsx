@@ -4,6 +4,7 @@ import {PathConstants} from "./pathConstants"
 const Home = React.lazy(() => import("../pages/Home"))
 // other page components...
 const About = React.lazy(() => import("../pages/About"))
+//const CardList = React.lazy(() => import("../component/EP/EProfile.tsx"))
 
 
 const routes = [
