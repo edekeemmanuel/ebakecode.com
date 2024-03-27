@@ -19,7 +19,7 @@ export default function About() {
     config: { duration: 1000 },
   })
   return (
-    <div className="bg-blue-900 hover:bg-amber-600 rounded absolute top-[122%] left-[30%]" onClick={() => toggle(!state)}>
+    <div className="bg-blue-900 hover:bg-amber-600 rounded absolute top-[115%] left-[30%]" onClick={() => toggle(!state)}>
       <animated.div
         className="p-5"
         style={{

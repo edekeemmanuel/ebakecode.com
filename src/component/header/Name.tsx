@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { styled } from '@stitches/react'
 import { useTrail, animated } from '@react-spring/web'
 
@@ -47,8 +47,10 @@ export default function Name() {
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,
   }))
+  const [music, setMusic] = useState(false);
 
   const isFlipped = useRef(false)
+  const ref = useRef(null)
 
   const handleClick = () => {
     if (isFlipped.current) {
@@ -61,6 +63,13 @@ export default function Name() {
         rotateX: 180,
       })
       isFlipped.current = true
+    }
+    
+    setMusic(!music)
+    if(!music) {
+      ref.current.play();
+    } else {
+      ref.current.pause();
     }
   }
 
@@ -88,6 +97,7 @@ export default function Name() {
             </BackBox>
           </Box>
         ))}
+        <audio src={"./AUD-20240201-WA0023.mp3"} ref={ref}  loop /> 
       </Container>
     </AppContainer>
   )
