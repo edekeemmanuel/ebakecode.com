@@ -15,7 +15,7 @@ export default function Layout() {
     return (
         <>
         <ColorMotion>
-          <div className="overflow-y-hidden">
+          <div className="">
             <div className="ebakecode">
               <NavBar />
               <Name />
