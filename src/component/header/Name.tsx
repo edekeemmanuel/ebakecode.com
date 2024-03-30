@@ -77,9 +77,9 @@ export default function Name() {
     <AppContainer className="myPhone:h-20 md:h-28 bg-black">
       <Container onClick={handleClick}>
         {trail.map(({ rotateX }, i) => (
-          <Box className="md:w-14 md:h-14 myPhone:w-7 myPhone:h-7" key={i}>
+          <Box className="2xs:w-10 2xs:h-10 4xs:relative 4xs:right-1 4xs:w-6 4xs:h-8 md:w-14 md:h-14 myPhone:w-7 myPhone:h-7" key={i}>
             <FrontBox
-            className="bg-blue-900 md:text-3xl"
+            className="bg-blue-900 hover:bg-neutral-50 hover:text-blue-900 md:text-3xl"
               key={items[i]}
               style={{
                 transform: rotateX.to(val => `perspective(600px) rotateX(${val}deg)`),
