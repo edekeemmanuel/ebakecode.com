@@ -19,9 +19,9 @@ export default function About() {
     config: { duration: 1000 },
   })
   return (
-    <div className="bg-blue-900 hover:bg-amber-600 rounded absolute top-[100%] left-[30%]" onClick={() => toggle(!state)}>
+    <div className="bg-blue-900 hover:bg-amber-600 rounded absolute top-[120%] left-[30%] xs:left-[38%] myPhone:top-[120%] sm:left-[35%] sm:top-[115%] mlg:top-[110%]" onClick={() => toggle(!state)}>
       <animated.div
-        className="p-5"
+        className="p-5 sm:p-8 md:p-10 md:text-2xl sm:text-xl mlg:p-12 mlg:text-3xl"
         style={{
           opacity: x.to({ range: [0, 1], output: [0.3, 1] }),
           scale: x.to({

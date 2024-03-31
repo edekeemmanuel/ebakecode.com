@@ -1,8 +1,23 @@
+<video className="rounded w-[100%]" src={"./20230804_1911241.mp4"} autoPlay loop />
+
+<img className="rounded w-[100%]" src={"./20230804_1913352.gif"} />
 
 
 
-
-
+useEffect( () => {
+    const timeScroll = () => {
+      if(count === 0){
+      if (window.scrollY >= 0) {
+        times.current = setTimeout(() => {
+          setCount(2)
+        }, 1000)
+       }}
+    }
+  
+    window.addEventListener("scroll", timeScroll)
+    return () => window.removeEventListener("scroll", timeScroll);
+  }, [count])
+  
 
 
 
