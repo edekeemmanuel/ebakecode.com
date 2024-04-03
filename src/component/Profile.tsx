@@ -1,20 +1,22 @@
 import About from "./About"
-import {useState, useEffect, useRef} from "react"
+//import {useState, useRef} from "react"
 const Profile = () => {
-  const init = 4;
-  const [count, setCount] = useState(init);
-  const times = useRef();
+ /* const init = false;
+ const [stop, setStop] = useState(init);
+  const status = useRef<HTMLVideoElement>() 
   
-  useEffect( () => {
-    times.current = setInterval(() => {
-      setCount(count => count - 1)
-    },8000);
-    return () => clearInterval(times.currrent)
-  }, [])
-  
+  const handleClick = () => {
+    setStop(!stop);
+    if (stop === true) {
+      status.current.pause();
+    } else {
+      status.current.play();
+    }
+  }
+  */
   return (
-    <div className="">
-      <video ref={times} className="rounded w-[100%]" src={"./20230804_1911241.mp4"} autoPlay playsInline loop={count} />
+    <div className="" >
+      <video  className="rounded w-[100%]" src={"./20230804_1911241.mp4"} autoPlay />
       <About />
     </div>
     )
