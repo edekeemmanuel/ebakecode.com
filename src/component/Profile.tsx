@@ -1,22 +1,23 @@
 import About from "./About"
-//import {useState, useRef} from "react"
+import {useState, useRef} from "react"
 const Profile = () => {
- /* const init = false;
+ const init = false;
  const [stop, setStop] = useState(init);
-  const status = useRef<HTMLVideoElement>() 
+  const status = useRef<HTMLVideoElement>(null) 
   
   const handleClick = () => {
     setStop(!stop);
     if (stop === true) {
-      status.current.pause();
+      status.current?.pause();
     } else {
-      status.current.play();
+      status.current?.play();
     }
   }
-  */
+  
   return (
-    <div className="" >
-      <img className="rounded w-[100%]" src={"./20230804_1913352.gif"} />
+    <div className="" onClick={handleClick} >
+      <video ref={status} className="rounded w-[100%]" autoPlay> <source src={"./20230804_1911241.mp4"} type="video/mp4" /> 
+      </video>
       <About />
     </div>
     )
