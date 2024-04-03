@@ -16,7 +16,7 @@ const Profile = () => {
   */
   return (
     <div className="" >
-      <video  className="rounded w-[100%]" src={"./20230804_1911241.mp4"} autoPlay />
+      <img className="rounded w-[100%]" src={"./20230804_1913352.gif"} />
       <About />
     </div>
     )
