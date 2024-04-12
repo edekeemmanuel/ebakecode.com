@@ -1,4 +1,4 @@
-import About from "./About"
+import AboutMe from "./AboutMe"
 import {useState, useRef} from "react"
 const Profile = () => {
  const init = false;
@@ -16,9 +16,9 @@ const Profile = () => {
   
   return (
     <div className="" onClick={handleClick} >
-      <video ref={status} className="rounded w-[100%]" autoPlay> <source src={"./20230804_1911241.mp4"} type="video/mp4" /> 
+      <video ref={status} className="rounded w-[100%]" autoPlay={true}> <source src={"./20230804_1911241.mp4"} type="video/mp4" /> 
       </video>
-      <About />
+      <AboutMe />
     </div>
     )
 }

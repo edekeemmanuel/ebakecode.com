@@ -1,4 +1,4 @@
-const About = () => {
+const Project = () => {
   return (
     <>
       <div className="bg-white text-blue-900">
@@ -7,4 +7,4 @@ const About = () => {
     </>
     )
 }
-export default About;
+export default Project;

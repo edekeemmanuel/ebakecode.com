@@ -10,8 +10,10 @@ import { useSpring, animated } from '@react-spring/web'
 75 % { transform: scale(1.03); }
 100 % { transform: scale(1); }
 `*/
+import {Link} from "react-router-dom"
+import {PathConstants} from "../routes/pathConstants.ts";
 
-export default function About() {
+export default function AboutMe() {
   const [state, toggle] = useState(true)
   const { x } = useSpring({
     from: { x: 0 },
@@ -29,7 +31,7 @@ export default function About() {
             output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
           }),
         }}>
-        ABOUT ME
+        <Link to={PathConstants.ABOUT}>ABOUT ME</Link>
       </animated.div>
     </div>
   )
