@@ -18,7 +18,7 @@ const Footer = () => {
   }, [dates])
   return  (
     <footer className="bg-blue-900 ">
-      <div className="cursor-pointer flex py-2 sm:py-5 text-amber-500 hover:text-neutral-50">
+      <div className="cursor-pointer flex py-2 sm:py-5 hover:text-amber-500 text-white">
         <div className="relative left-4 flex text-2xl xs:text-3xl text-neutral-50 top-3 xs:top-6 sm:text-5xl mlg:left-[7%]">
          <a className="">
           <span>&#128640;</span>
@@ -48,7 +48,7 @@ const Footer = () => {
          </a>
         </div>
       </div>
-      <div className="bg-black">
+      <div className="">
         <small className="text-[5px] relative bottom-0.5">&copy; Copyright {dates}, EBakeCode. All Rights Reserved</small>
       </div>
     </footer>

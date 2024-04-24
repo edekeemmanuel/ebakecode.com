@@ -1,5 +1,5 @@
 import { useRef} from 'react';
-import Slider, {Slide} from "../Slide";
+import Slider, {Slide} from "../../utility/Slide.tsx";
 
 const Greeting = () => {
   console.log("greeting")
@@ -22,7 +22,7 @@ const Greeting = () => {
     }
     };
   const autoplayTime ={
-    delay: 10000,
+    delay: 5000,
     disableOnInteraction: false,
   };
   

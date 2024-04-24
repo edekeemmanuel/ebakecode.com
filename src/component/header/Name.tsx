@@ -32,13 +32,13 @@ const SharedStyles = {
 
 const FrontBox = styled(animated.div, {
   ...SharedStyles,
-  border: 'solid 2px #1a1a1a',
+  border: 'solid 2px white',
 })
 
 const BackBox = styled(animated.div, {
   ...SharedStyles,
-  border: 'solid 2px #fdb23f',
-  color: '#fafafa',
+  border: 'solid 2px white',
+  color: 'white',
 })
 
 const items = ['E ','B', 'A', 'K', 'E', 'C', 'O', 'D', 'E']
@@ -74,12 +74,12 @@ export default function Name() {
   }
 
   return (
-    <AppContainer className="myPhone:h-20 md:h-28 bg-black">
+    <AppContainer className="myPhone:h-20 md:h-28 bg-blue-900 cursor-pointer">
       <Container onClick={handleClick}>
         {trail.map(({ rotateX }, i) => (
           <Box className="2xs:w-10 2xs:h-10 4xs:relative 4xs:right-1 4xs:w-6 4xs:h-8 md:w-14 md:h-14 myPhone:w-7 myPhone:h-7" key={i}>
             <FrontBox
-            className="bg-blue-900 hover:bg-neutral-50 hover:text-blue-900 md:text-3xl"
+            className="bg-white hover:bg-amber-500 text-black hover:text-white md:text-3xl"
               key={items[i]}
               style={{
                 transform: rotateX.to(val => `perspective(600px) rotateX(${val}deg)`),

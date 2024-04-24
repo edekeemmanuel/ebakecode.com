@@ -2,7 +2,7 @@ import AboutMe from "./AboutMe"
 import {useState, useEffect, useRef} from "react"
 const Profile = () => {
  const init = false;
- const [auto, setAuto] = useState(false)
+ const [auto, setAuto] = useState(true)
  const [stop, setStop] = useState(init);
   const status = useRef<HTMLVideoElement>(null) 
   useEffect(() => {
