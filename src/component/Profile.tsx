@@ -1,5 +1,8 @@
 import AboutMe from "./AboutMe"
 import {useState, useEffect, useRef} from "react"
+import evideo from "../view/video/20230804_1911241.mp4";
+
+
 const Profile = () => {
  const init = false;
  const [auto, setAuto] = useState(true)
@@ -20,7 +23,7 @@ const Profile = () => {
   
   return (
     <div className="" onClick={handleClick} >
-      <video ref={status} className="rounded w-[100%]" autoPlay={auto}> <source src={"./20230804_1911241.mp4"} type="video/mp4" /> 
+      <video ref={status} className="rounded w-[100%]" autoPlay={auto}> <source src={evideo} type="video/mp4" /> 
       </video>
       <AboutMe />
     </div>

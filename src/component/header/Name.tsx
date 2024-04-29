@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { styled } from '@stitches/react'
 import { useTrail, animated } from '@react-spring/web'
+import eaudio from "../../view/audio/Sarz-Ft.-Asake-x-Gunna-Happiness.mp3"
 
 const AppContainer = styled('div', {
   display: 'flex',
@@ -97,7 +98,7 @@ export default function Name() {
             </BackBox>
           </Box>
         ))}
-        <audio src={"./Sarz-Ft.-Asake-x-Gunna-Happiness.mp3"} ref={ref}  loop /> 
+        <audio src={eaudio} ref={ref}  loop /> 
       </Container>
     </AppContainer>
   )

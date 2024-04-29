@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {useCollapse} from "react-collapsed"
+import fist from "../../view/image/istockphoto-1389506839-612x612.jpg"
 
 const Objective = () => {
  const [ isExpanded, setExpanded ] = useState(false);
@@ -28,7 +29,7 @@ const Objective = () => {
       </div>
       <div className="flex  w-[100%]">
           <div className="w-[30%]">
-            <img className="h-60" src={"istockphoto-1389506839-612x612.jpg"} />
+            <img className="h-60" src={fist} />
           </div>
           <div className="w-[70%]">
             <div className="pt-14 relative right-3 berkshire-swash text-black hover:text-blue-900">What keeps me moving in my work ethics, is having this understanding that grace is sufficient to learn and understand everything. 
