@@ -25,6 +25,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --primary: black;
+  --secondary: white;
 }
 
 html {
@@ -125,11 +127,6 @@ button:focus-visible {
   }
 }
 
-p {
-  margin: 0.67em 0;
-  background-color: gold;
-  color: red;
-}
 .container {
   height: 100%;
 }

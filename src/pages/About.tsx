@@ -1,6 +1,7 @@
 import ContactMe from "../component/ContactMe.tsx"
 import Experience from "../component/about/Experience.tsx"
 import Objective from "../component/about/Objective.tsx"
+import Skill from "../component/about/Skill.tsx"
 
 const About = () => {
   return (
@@ -24,13 +25,14 @@ const About = () => {
             </div>
           </div>
           <div className="w-[50%] ">
-            <img className="rounded" src={"ecode.jpg"} />
+            <img className="hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition rounded shadow-lg shadow-neutral-100 hover:opacity-50 drop-shadow-2xl transition ease-in-out delay-100 duration-500 delay-100" src={"ecode.jpg"} />
           </div>
         </div>
         <div className="px-5">
           <Objective />
         </div>
         <Experience />
+        <Skill />
       </div>
       </div>
     </>

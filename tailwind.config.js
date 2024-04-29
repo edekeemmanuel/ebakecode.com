@@ -11,6 +11,10 @@ export default {
       colors: {
         primaryColor: '#1D1337',
         accent: '#452E84',
+        primary: 'var(--primary)',
+       secondary: 'var(--secondary)',
+       bgblue: "#2a4365",
+       bgamber: "#ed8936",
       },
     },
     screens: {

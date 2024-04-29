@@ -77,7 +77,7 @@ export default function Name() {
     <AppContainer className="myPhone:h-20 md:h-28 bg-blue-900 cursor-pointer">
       <Container onClick={handleClick}>
         {trail.map(({ rotateX }, i) => (
-          <Box className="2xs:w-10 2xs:h-10 4xs:relative 4xs:right-1 4xs:w-6 4xs:h-8 md:w-14 md:h-14 myPhone:w-7 myPhone:h-7" key={i}>
+          <Box className="hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 drop-shadow-2xl shadow-2xl shadow-neutral-100 rounded 2xs:w-10 2xs:h-10 4xs:relative 4xs:right-1 4xs:w-6 4xs:h-8 md:w-14 md:h-14 myPhone:w-7 myPhone:h-7" key={i}>
             <FrontBox
             className="bg-white hover:bg-amber-500 text-black hover:text-white md:text-3xl"
               key={items[i]}
