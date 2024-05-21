@@ -30,12 +30,12 @@ export default function Certificate() {
         modules={[Zoom, EffectCards, Pagination, ]}
         className="overflow-hidden w-[240px]"
       >
-        <SwiperSlide lazy={true} className="swiper-slidecert">
-          <div className="swiper-zoom-container"><img className="" src={jobbermancert} loading="lazy"/></div>
+        <SwiperSlide  className="swiper-slidecert">
+          <div className="swiper-zoom-container"><img className="" src={jobbermancert} /></div>
         </SwiperSlide >
-        <SwiperSlide lazy={true} className="swiper-slidecert"><div className="swiper-zoom-container"><img className="" src={sidehustlecert} loading="lazy"/></div></SwiperSlide>
-        <SwiperSlide lazy={true} className="swiper-slidecert"><div className="swiper-zoom-container"><img className="" src={kodecampcert}  loading="lazy"/></div></SwiperSlide>
-        <SwiperSlide lazy={true} className="swiper-slidecert"><div className="swiper-zoom-container"><img className="" src={devcert}  loading="lazy"/></div></SwiperSlide>
+        <SwiperSlide  className="swiper-slidecert"><div className="swiper-zoom-container"><img className="" src={sidehustlecert} /></div></SwiperSlide>
+        <SwiperSlide  className="swiper-slidecert"><div className="swiper-zoom-container"><img className="" src={kodecampcert}  /></div></SwiperSlide>
+        <SwiperSlide  className="swiper-slidecert"><div className="swiper-zoom-container"><img className="" src={devcert}  /></div></SwiperSlide>
         
       </Swiper>
     </>

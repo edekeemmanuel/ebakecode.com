@@ -23,7 +23,10 @@ export default function ColorMotion({ children }) {
  // let bgClass = classNames("h-[150vh]", {"bgColorActive": bgColor})
   
   useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent)
+    window.addEventListener("scroll", listenScrollEvent);
+    (() => {
+      window.removeEventListener("scroll", listenScrollEvent)
+    })();
     console.log("scroll useeffect")
   }, [bgColor])
   console.log("bgColor")
