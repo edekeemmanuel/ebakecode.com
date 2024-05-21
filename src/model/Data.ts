@@ -32,6 +32,9 @@ import vercel from "../view/svg/vercel-color.svg"
 import graphql from "../view/svg/graphql-color.svg"
 
 
+
+  
+
 export const experience = [
   {
     id: uuidv4(),

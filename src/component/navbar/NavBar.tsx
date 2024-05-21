@@ -7,7 +7,7 @@ import ebakecode from "../../view/image/ebakecode.jpg"
 const NavBar = () => {
   console.log("nav bar")
   return  (
-    <nav className="text-neutral-700 4xs:h-[13vh] myPhone:h-20 3xs:h-24 2xs:h-[13vh] sm:h-32 md:h-32 lg:h-[10vh] mlg:h-40 bg-blue-900" >
+    <nav className="text-neutral-700 4xs:h-[13vh] myPhone:h-20 3xs:h-24 2xs:h-[13vh] sm:h-32 md:h-32 lg:h-[10vh] mlg:h-40 bg-white" >
       <div className="px-2 py-3">
         <div className="flex">
           <Link to={PathConstants.HOME} className="w-[20%] mlg:pl-9 lg:pl-8">

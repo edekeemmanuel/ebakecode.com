@@ -43,7 +43,7 @@ import { FaCirclePlus, FaCircleMinus } from "react-icons/fa6";
     <>
      <div className="pb-6" key={id ? id : company}>
       <div>
-        <div className={`hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 p-3 hover:bg-amber-500 hover:text-black cursor-pointer text-white rounded-2xl proza-libre-bold ${bgColor ? "bg-amber-500 text-[black]" : "bg-blue-900"}`}>
+        <div className={`hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 p-3 hover:bg-blue-900 hover:text-white cursor-pointer  rounded-2xl proza-libre-bold ${bgColor ?  "bg-blue-900 text-white" : "bg-amber-500 text-black" }`}>
           <div className=" flex align-middle w-[100%]"  >
             <div className="rounded-full border-2 border-white w-[18%] bg-white">
               <div className="p-2">

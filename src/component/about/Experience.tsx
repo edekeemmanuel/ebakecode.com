@@ -4,7 +4,7 @@ import {experience} from "../../model/Data.ts"
 const Experience = () => {
    return (
      <>
-      <div className="select-none">
+      <div className="select-none py-3">
         <div>
           <h1 className="proza-libre-bold text-start text-blue-900 text-xl">Experiences</h1>
           <div className="pt-5">

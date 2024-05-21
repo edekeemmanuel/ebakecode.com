@@ -2,12 +2,14 @@ import ContactMe from "../component/ContactMe.tsx"
 import Experience from "../component/about/Experience.tsx"
 import Objective from "../component/about/Objective.tsx"
 import Skill from "../component/about/Skill.tsx"
+import Certificate from "../component/about/Certificate.tsx"
+import Recommendation from "../component/about/Recommendation.tsx"
 import ecode from "../view/image/ecode.jpg"
 
 const About = () => {
   return (
     <>
-      <div className="bg-white text-black ">
+      <div className="bg-white text-black">
       <div className="py-10 px-4">
         <div className="flex pb-10 ">
           <div className="w-[50%] pr-2">
@@ -34,6 +36,10 @@ const About = () => {
         </div>
         <Experience />
         <Skill />
+        <div className="overflow-hidden">
+        <Certificate />
+        </div>
+        <Recommendation />
       </div>
       </div>
     </>

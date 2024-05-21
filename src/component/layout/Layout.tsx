@@ -15,12 +15,12 @@ export default function Layout() {
     return (
         <>
         <ColorMotion>
-          <div className="">
+          <div className="bg-white border-white">
             <div className="ebakecode">
               <NavBar />
               <Name />
               <main>                
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div className="text-black">Loading...</div>}>
                     <Outlet />
                 </Suspense>
               </main>

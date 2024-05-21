@@ -4,7 +4,7 @@ import { fallDown as Menu } from 'react-burger-menu';
 import { FaHamburger } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
-const CustomBurgerIcon = () => <FaHamburger className="text-white hover:text-amber-500 text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl border-0 outline-0 hover:border-0 hover:outline-0 hover:text-neutral-50" />
+const CustomBurgerIcon = () => <FaHamburger className="text-blue-900 hover:text-amber-500 text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl border-0 outline-0 hover:border-0 hover:outline-0 hover:text-neutral-50" />
 const CustomCrossIcon= () => <IoMdCloseCircleOutline className="text-white hover:text-amber-500 text-3xl border-none outline-none absolute right-1 " />
 
 const Sidebar = () => {
