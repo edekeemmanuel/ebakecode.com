@@ -33,7 +33,7 @@ const Footer = () => {
             <span className="text-[10px] relative bottom-4 sm:bottom-8 md:text-[15px] md:bottom-7 text-black">mail</span>
           </a>
         </div>
-        <div className="grid  grid-cols-2  gap-1 text-3xl 2xs:text-4xl xs:text-5xl sm:text-6xl relative left-[135px] 4xs:left-[27%] 3xs:left-[42%] 2xs:left-[48%] xs:left-[46%] myPhone:left-[37%] sm:left-[40%] md:left-[45%] mlg:left-[50%] text-blue-900 hover:text-amber-500">
+        <div className="grid  grid-cols-2  gap-1 text-3xl 2xs:text-4xl xs:text-5xl sm:text-6xl absolute 4xs:left-[75%] 3xs:left-[79%] 2xs:left-[79%] xs:left-[46%] myPhone:left-[77%] sm:left-[40%] md:left-[45%] mlg:left-[50%] text-blue-900 hover:text-amber-500">
         <a href="https://wa.me/message/2IKMWHGVFTLMD1">
           <FaSquareWhatsapp />
          </a>

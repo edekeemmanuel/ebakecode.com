@@ -15,7 +15,7 @@ export default function Layout() {
     return (
         <>
         <ColorMotion>
-          <div className="bg-white border-white">
+          <div className="4xs:w-[97%] myPhone:w-[100%]">
             <div className="ebakecode">
               <NavBar />
               <Name />

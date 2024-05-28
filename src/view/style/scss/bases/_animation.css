@@ -1,0 +1,22 @@
+@keyframes bgColor {
+  0% {
+    background-color: #d0d0d0;
+  }
+  25% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #d3ac6c;
+  }
+  75% {
+    background-color: #d58c15;
+  }
+  100% {
+    background-color: #e89104;
+  }
+}
+
+.bgAnimate {
+  animation: bgColor 10s ease-in-out 10s infinite alternate;
+  transition: animation 10s ease-in-out 5s;
+}

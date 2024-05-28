@@ -20,7 +20,7 @@ const Objective = () => {
   return (
     <>
       <div className="cursor-pointer ">
-      <div className="hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 rounded-md border-4 border-amber-500 p-2 bg-blue-900 border-blue-900 hover:border-amber-500 hover:bg-amber-500 text-black hover:text-blue-900">
+      <div className="hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 rounded-md border-4 border-amber-500 p-2 bg-blue-900 border-blue-900 hover:border-amber-500 hover:bg-amber-500 text-black hover:text-blue-900 4xs:text-xs myPhone:text-sm">
           <div className=" rounded-md border-4 border-amber-500 hover:border-blue-900 border-dotted" {...getToggleProps({onClick: handleOnClick})}>
           <div className="bg-neutral-50 p-3">
           <div {...getCollapseProps()}>Super passionate software engineer that enjoys coding and building websites that are well resourceful and sustainable (readability, testability, and maintainability). I am dedicated to enhancing my professional skills, capabilities, and knowledge with the team and how impactful I can provide insight and solution tech wise to the community.
@@ -32,8 +32,8 @@ const Objective = () => {
           <div className="w-[30%]">
             <img className="h-60" src={fist} />
           </div>
-          <div className="w-[70%]">
-            <div className="pt-14 relative right-3 berkshire-swash text-black hover:text-blue-900">What keeps me moving in my work ethics, is having this understanding that grace is sufficient to learn and understand everything. 
+          <div className="w-[70%] 4xs:text-xs myPhone:text-sm">
+            <div className="pt-14 relative right-3 berkshire-swash text-black hover:text-blue-900 2xs:pt-20">What keeps me moving in my work ethics, is having this understanding that grace is sufficient to learn and understand everything. 
             </div>
           </div>
       </div> 

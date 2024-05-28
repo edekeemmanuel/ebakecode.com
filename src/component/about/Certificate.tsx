@@ -28,7 +28,7 @@ export default function Certificate() {
         effect={'cards'}
         grabCursor={true}
         modules={[Zoom, EffectCards, Pagination, ]}
-        className="overflow-hidden w-[240px]"
+        className="overflow-hidden w-[240px] 3xs:w-[300px] 2xs:w-[360px]"
       >
         <SwiperSlide  className="swiper-slidecert">
           <div className="swiper-zoom-container"><img className="" src={jobbermancert} /></div>

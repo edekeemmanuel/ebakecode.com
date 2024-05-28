@@ -41,20 +41,20 @@ import { FaCirclePlus, FaCircleMinus } from "react-icons/fa6";
     }
   return(
     <>
-     <div className="pb-6" key={id ? id : company}>
+     <div className="pb-6 4xs:text-xs myPhone:text-sm" key={id ? id : company}>
       <div>
         <div className={`hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 p-3 hover:bg-blue-900 hover:text-white cursor-pointer  rounded-2xl proza-libre-bold ${bgColor ?  "bg-blue-900 text-white" : "bg-amber-500 text-black" }`}>
           <div className=" flex align-middle w-[100%]"  >
-            <div className="rounded-full border-2 border-white w-[18%] bg-white">
+            <div className="rounded-full border-2 border-white myPhone:w-[18%] 4xs:w-[23%] 2xs:w-[15%] bg-white">
               <div className="p-2">
                 <img className="size-10 " src={image} alt={company} />
               </div>
             </div>
-            <div className="w-[65%]">
+            <div className="myPhone:w-[65%] 4xs:w-[55%] 4xs:pl-2 myPhone:pl-0 pt-2 2xs:w-[80%] 2xs:pl-4 2xs:pt-3.5">
               <span>{company} </span><span className="text-xs">founded by </span> <span>{name}</span>
             </div>
             <div className="icon w-[15%]" {...getToggleProps({onClick: handleOnClick})}>
-              {isExpanded ? <FaCircleMinus className="relative top-3 left-5 text-white text-3xl animate-spin" /> : <FaCirclePlus className="relative top-3 left-5 text-white text-3xl hover:animate-spin" />}
+              {isExpanded ? <FaCircleMinus className="relative top-3 left-5 text-white text-3xl animate-spin" /> : <FaCirclePlus className="relative top-3 left-5 text-white text-3xl hover:animate-spin 2xs:left-6" />}
             </div>
           </div>
         </div>

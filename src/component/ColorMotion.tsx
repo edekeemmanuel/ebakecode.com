@@ -24,9 +24,9 @@ export default function ColorMotion({ children }) {
   
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
-    (() => {
+    () => {
       window.removeEventListener("scroll", listenScrollEvent)
-    })();
+    };
     console.log("scroll useeffect")
   }, [bgColor])
   console.log("bgColor")

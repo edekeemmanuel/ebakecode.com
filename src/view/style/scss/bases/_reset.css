@@ -1,7 +1,6 @@
 @use "../abstracts/_mixins" as *;
 @use "../abstracts/_colors" as *;
 @use "../abstracts/_functions" as *;
-
 *,
 *::after,
 *::before {
@@ -34,13 +33,13 @@ html {
   scroll-behavior: smooth;
 }
 
- body{
+body {
   margin: 0;
   box-sizing: border-box;
   min-width: 320px;
   overflow-x: hidden;
   color: white;
- }
+}
 
 a,
 a:visited,
@@ -105,15 +104,12 @@ button:focus-visible {
   /*background-image: url("./download (3).jpeg");*/
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
+
 .wrapper {
   max-width: 98%;
   width: 98%;
-  
-  
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

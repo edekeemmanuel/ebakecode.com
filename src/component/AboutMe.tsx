@@ -21,9 +21,9 @@ export default function AboutMe() {
     config: { duration: 1000 },
   })
   return (
-    <div className="bg-blue-900 hover:bg-amber-500 hover:text-black rounded absolute top-[120%] left-[30%] xs:left-[38%] myPhone:top-[115%] sm:left-[35%] sm:top-[115%] md:top-[100%] mlg:top-[110%]" onClick={() => toggle(!state)}>
+    <div className="bg-blue-900 hover:bg-amber-500 hover:text-black rounded absolute top-[120%] myPhone:left-[33%] xs:left-[38%] myPhone:top-[115%] sm:left-[35%] sm:top-[115%] md:top-[100%] mlg:top-[110%] 3xs:left-[34%] 2xs:left-[36%] 4xs:left-[32%] 4xs:top-[125%]" onClick={() => toggle(!state)}>
       <animated.div
-        className="p-5 sm:p-8 md:p-10 md:text-2xl sm:text-xl mlg:p-12 mlg:text-3xl"
+        className="p-5 sm:p-8 md:p-10 md:text-2xl sm:text-xl mlg:p-12 mlg:text-3xl 4xs:text-xs myPhone:text-sm"
         style={{
           opacity: x.to({ range: [0, 1], output: [0.3, 1] }),
           scale: x.to({
