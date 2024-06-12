@@ -21,7 +21,7 @@ export default function ContactMe() {
     config: { duration: 1000 },
   })
   return (
-    <div className="bg-blue-900 hover:bg-amber-500 hover:text-black rounded myPhone:text-[12px] text-neutral-50 w-[80%] 4xs:text-xs 2xs:text-md" onClick={() => toggle(!state)}>
+    <div className="bg-blue-900 hover:bg-amber-500 hover:text-black rounded myPhone:text-[12px] text-neutral-50 w-[80%] 4xs:text-xs 2xs:text-md sm:text-xl mlg:text-3xl" onClick={() => toggle(!state)}>
       <animated.div
         className="py-2"
         style={{

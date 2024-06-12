@@ -21,14 +21,14 @@ export default function Certificate() {
   return (
     <>
       <div className="pt-10 pb-5">
-          <h1 className="proza-libre-bold text-start text-blue-900 text-xl">Awards</h1>
+          <h1 className="proza-libre-bold text-start text-blue-900 text-xl sm:text-3xl md:text-4xl mlg:text-5xl">Awards</h1>
       </div>    
       <Swiper
       zoom={true}
         effect={'cards'}
         grabCursor={true}
         modules={[Zoom, EffectCards, Pagination, ]}
-        className="overflow-hidden w-[240px] 3xs:w-[300px] 2xs:w-[360px]"
+        className="overflow-hidden w-[240px] 3xs:w-[300px] 2xs:w-[360px] sm:w-[500px] md:w-[600px] "
       >
         <SwiperSlide  className="swiper-slidecert">
           <div className="swiper-zoom-container"><img className="" src={jobbermancert} /></div>

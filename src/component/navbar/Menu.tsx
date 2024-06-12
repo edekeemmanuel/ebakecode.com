@@ -4,14 +4,14 @@ import { fallDown as Menu } from 'react-burger-menu';
 import { FaHamburger } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
-const CustomBurgerIcon = () => <FaHamburger className="text-blue-900 hover:text-amber-500 text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl border-0 outline-0 hover:border-0 hover:outline-0 hover:text-neutral-50" />
-const CustomCrossIcon= () => <IoMdCloseCircleOutline className="text-blue-900 hover:text-amber-500 text-3xl border-none outline-none absolute right-1 " />
+const CustomBurgerIcon = () => <FaHamburger className="text-blue-900 hover:text-amber-500 text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl border-0 outline-0 hover:border-0 hover:outline-0 hover:text-neutral-50 mlg:text-7xl" />
+const CustomCrossIcon= () => <IoMdCloseCircleOutline className="text-blue-900 hover:text-amber-500 text-3xl border-none outline-none absolute right-1 sm:text-4xl md:text-5xl" />
 
 const Sidebar = () => {
   return (
     <div  className="cursor-pointer myPhone:w-[20%] relative myPhone:pl-9 4xs:pl-6 md:pl-20 4xs:py-2 md:p-6 myPhone:p-3 3xs:pl-11 xs:pl-14 mlg:pl-32 ">
       <Menu className="hover:drop-shadow-md hover:shadow-md hover:shadow-neutral-500 hover:transition transition delay-100 ease-in-out duration-1000 drop-shadow-2xl shadow-2xl shadow-neutral-100 rounded absolute bottom-0 bg-white hover:text-blue-900 text-black " customBurgerIcon={<CustomBurgerIcon/>} customCrossIcon={<CustomCrossIcon />} pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } width={'40%'} right>
-          <div className="mt-12 ">
+          <div className="mt-12 sm:text-3xl">
             <NavLink className="md:text-3xl lg:text-4xl flex justify-center overflow-y-hidden overscroll-none" to={PathConstants.HOME} ><div className="animate-bounce">🏠 </div>Home</NavLink>
             <div className="inline-flex items-center justify-center w-full ">
               <hr className="w-24 md:w-48 lg:w-56 h-px my-2 bg-neutral-50 border-0 dark:bg-black" />

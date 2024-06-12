@@ -13,15 +13,15 @@ const About = () => {
       <div className="py-10 px-4 ">
         <div className="flex pb-10 ">
           <div className="w-[50%] pr-2 ">
-            <div className="myPhone:pt-6 4xs:pt-3.5 proza-libre-bold 4xs:text-xs myPhone:text-sm 2xs:text-xl 2xs:pt-7"><span>Hi, I'm</span>  
+            <div className="myPhone:pt-6 4xs:pt-3.5 proza-libre-bold 4xs:text-xs myPhone:text-sm 2xs:text-xl 2xs:pt-7 xs:text-2xl xs:pt-12 sm:text-3xl sm:pt-10 md:pt-24 mlg:text-4xl mlg:pt-32"><span>Hi, I'm</span>  
             </div>
-            <div className="cursor-pointer scale-y-[2] leading-[3rem] hover:animate-bounce text-blue-800 hover:text-black proza-libre-bold 4xs:text-xs 4xs:py-2 myPhone:text-sm 2xs:text-xl"> Emmanuel Edeke
+            <div className="cursor-pointer scale-y-[2] leading-[3rem] hover:animate-bounce text-blue-800 hover:text-black proza-libre-bold 4xs:text-xs 4xs:py-2 myPhone:text-sm 2xs:text-xl xs:text-2xl sm:text-2xl mlg:text-4xl"> Emmanuel Edeke
             </div>
-            <div className="4xs:text-xs leading-[1.8rem] proza-libre-bold myPhone:text-sm 2xs:text-xl">Enthusaist
+            <div className="4xs:text-xs leading-[1.8rem] proza-libre-bold myPhone:text-sm 2xs:text-xl xs:text-2xl sm:text-3xl mlg:text-4xl">Enthusaist
             </div>
-            <div className="4xs:text-xs hover:text-blue-800 proza-libre-bold myPhone:text-sm 2xs:text-xl"> Software Engineer 
+            <div className="4xs:text-xs hover:text-blue-800 proza-libre-bold myPhone:text-sm 2xs:text-xl xs:text-2xl sm:text-3xl mlg:text-4xl"> Software Engineer 
             </div>
-            <div className="hover:text-blue-800 proza-libre-bold   4xs:text-xs 2xs:text-md">(JS)
+            <div className="hover:text-blue-800 proza-libre-bold   4xs:text-xs 2xs:text-md xs:text-lg sm:text-xl mlg:text-2xl">(JS)
             </div>
             <div className="pt-3 flex justify-center">
               <ContactMe />

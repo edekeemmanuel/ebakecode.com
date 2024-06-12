@@ -22,7 +22,7 @@ export default function Recommendation() {
   return (
     <>
       <div className="pt-12 pb-5 ">
-          <h1 className="proza-libre-bold text-start text-blue-900 text-xl">Recommendations</h1>
+          <h1 className="proza-libre-bold text-start text-blue-900 text-xl sm:text-3xl md:text-4xl mlg:text-5xl">Recommendations</h1>
       </div>    
       <Swiper
         effect={'coverflow'}
@@ -41,34 +41,34 @@ export default function Recommendation() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="hover:drop-shadow-2xl hover:shadow-md hover:shadow-neutral-500 hover:transition rounded drop-shadow-2xl shadow-md shadow-neutral-500 transition delay-100 ease-in-out duration-1000 hover:bg-blue-900 bg-amber-500 hover:text-white text-black  h-96 flex flex-col justify-center">
+          <div className="hover:drop-shadow-2xl hover:shadow-md hover:shadow-neutral-500 hover:transition rounded drop-shadow-2xl shadow-md shadow-neutral-500 transition delay-100 ease-in-out duration-1000 hover:bg-blue-900 bg-amber-500 hover:text-white text-black  h-96 flex flex-col justify-center sm:h-[500px]">
             <div className="">
               <div className="flex justify-center">
                 <img className="rounded-full size-20" src={Abiola} alt="Abiola Fasanya"/>
               </div>
               <div className="proza-libre-bold">
-                <h1>Abiola Fasanya</h1>
-                <p className="text-[10px] berkshire-swash">Fullstack Developer</p>
+                <h1 className="sm:text-2xl md:text-3xl">Abiola Fasanya</h1>
+                <p className="text-[10px] berkshire-swash sm:text-lg md:text-xl">Fullstack Developer</p>
               </div>
             </div>
             <div className="pt-6">
-              <p className="px-7 text-center text-[14px]">I and Emmanuel used to learn together @KodeCamp, he's very diligent person who can brilliantly communicate his idea, his collaborative skill is top notch and he's one of the best people i have learned together with.</p>
+              <p className="px-7 text-center text-[14px] sm:text-2xl md:text-3xl">I and Emmanuel used to learn together @KodeCamp, he's very diligent person who can brilliantly communicate his idea, his collaborative skill is top notch and he's one of the best people i have learned together with.</p>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="hover:drop-shadow-2xl hover:shadow-md hover:shadow-neutral-500 hover:transition rounded drop-shadow-2xl shadow-md shadow-neutral-500 transition delay-100 ease-in-out duration-1000 hover:bg-blue-900 bg-amber-500 hover:text-white text-black  h-96 flex flex-col justify-center">
+          <div className="hover:drop-shadow-2xl hover:shadow-md hover:shadow-neutral-500 hover:transition rounded drop-shadow-2xl shadow-md shadow-neutral-500 transition delay-100 ease-in-out duration-1000 hover:bg-blue-900 bg-amber-500 hover:text-white text-black  h-96 flex flex-col justify-center sm:h-[500px]">
             <div className="">
               <div className="flex justify-center">
                 <img className="rounded-full size-20" src={Opara} alt="Opara Nnadozie"/>
               </div>
               <div className="proza-libre-bold">
-                <h1>Nnadozie Opara</h1>
-                <p className="text-[10px] berkshire-swash">Software Engineer</p>
+                <h1 className="sm:text-2xl md:text-3xl">Nnadozie Opara</h1>
+                <p className="text-[10px] berkshire-swash sm:text-lg md:text-xl">Software Engineer</p>
               </div>
             </div>
             <div className="pt-6">
-              <p className="px-7 text-center text-[14px]">Emmanuel is a great developer who pay attention to details. He is a great team member who carries everyone along and values good relationships with team members.
+              <p className="px-7 text-center text-[14px] sm:text-2xl md:text-3xl">Emmanuel is a great developer who pay attention to details. He is a great team member who carries everyone along and values good relationships with team members.
               He is an all around great guy.</p>
             </div>
           </div>

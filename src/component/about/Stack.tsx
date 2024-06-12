@@ -8,7 +8,7 @@ const Stack = (props) => {
         <img className="h-20" src={image}/>
       </a>
       <div>
-        <p className="text-center berkshire-swash text-xs">{name}</p>
+        <p className="text-center berkshire-swash text-xs md:text-xl">{name}</p>
       </div>
       </div>
     </div>
